@@ -1,0 +1,79 @@
+body{
+    background-color: #b4b5b0;
+}
+.page{
+    height: 800px;
+    width: 550px;
+    margin-top: 50px;
+    padding: 10px;
+    background-color: white;
+}
+.page1{
+    height: 150px;
+    width: 570px;
+    margin-top: -15px;
+    margin-left: -10px;
+
+    background-color: #5b9dd6;
+}
+.page2{
+    height: 30px;
+    width: 570px;
+    margin-top: 5px;
+    margin-left: -10px;
+
+    background-color: #5b9dd6;
+}
+
+.hed{
+    font-size: 40px;
+    color: white;
+    padding-top: 20px;
+    margin-right: 50px;
+    font-weight: bold;
+}
+
+.add{
+    color: white;
+    font-size: 16px;
+    margin-top:20px;
+}
+
+h3{
+    margin-right: 350px;
+    margin-bottom: -7px;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+.clg{
+    margin-right: 31px;
+    margin-left: 30px;
+    text-align: justify;
+}
+
+.ps{
+    margin-right: 31px;
+    margin-left: 30px;
+    text-align: justify;
+    margin-bottom: -20px;
+}
+
+.proj{
+    margin-right: 31px;
+    margin-left: 30px;
+    text-align: justify;  
+     
+}
+
+.exp{
+    margin-right: 31px;
+    margin-left: 30px;
+    text-align: justify;
+}
+
+.lng{
+    margin-right: 31px;
+    margin-left: 30px;
+    text-align: justify;
+}

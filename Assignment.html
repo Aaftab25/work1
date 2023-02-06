@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        
+        <title>Employee</title>
+    </head>
+    <body>
+        <center>
+            
+            <form method="post">
+                <div class="page">
+                <h1> Employee Details Form</h1>
+                <table >
+                   
+                    <tr>
+                        <td class="text"> Employee Name </td>
+                        <td>
+                            <input type="text" class="txtbox" name="empname" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text"> Age </td>
+                        <td>
+                            <input type="number" class="txtbox" name="age" min="18" max="55" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text"> Gender </td>
+                        <td>
+                            <input type="radio" class="rbtn" name="gender" value="male" required/><span class="text">Male</span>
+                            <input type="radio" class="rbtn" name="gender" value="female" required/><span class="text">Female</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text">  Designation </td>
+                        <td>
+                            <input type="text" class="txtbox" name="desi" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text"> Salary </td>
+                        <td>
+                            <input type="text" class="txtbox" class="txtbox" name="salary" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text"> Location </td>
+                        <td>
+                            <input type="text" class="txtbox" name="location" required/>
+                        </td>
+                    </tr> <tr>
+                        <td class="text"> Email ID </td>
+                        <td>
+                            <input type="email" class="txtbox" name="email" required/>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td class="text"> Date of Joining </td>
+                        <td>
+                            <input type="date" class="txtbox" name="doj" required/>
+                        </td>
+                    </tr> 
+                    <tr>
+                        <td class="text"> Contact Number </td>
+                        <td>
+                            <input type="tel" class="txtbox" name="con" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" class="btn" name="sub" id="sub" value="Submit">
+                        </td>
+                    </tr>
+                </table></div>
+            </form>
+        </center>
+    </body>
+</html>
