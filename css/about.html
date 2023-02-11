@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Basic Layout</title>
+        <style>
+            .head{
+                height: 70px;
+                width: 100%;
+                background-color: rgb(220, 240, 240);
+                text-align: center;
+
+            }
+
+            .leftbar{
+                width: 15%;
+                float: left;
+                background-color: antiquewhite;
+                height: 50px;
+                text-align: center;
+                font-size: 20px;
+                overflow: auto;
+
+            }
+           
+            .leftbar a{
+                display: block;
+                color: black;
+                padding: 16px;
+                text-decoration: none;
+            }
+            .leftbar a:hover{
+                background-color: rgb(151, 212, 177);
+            }
+            .leftbar a.active{
+                background-color: rgb(39, 153, 219);
+                color: white;
+
+            }
+
+            img{
+                height: 70px;
+                width: 90px;
+                margin-left: 50px;
+                float: left;
+
+            }
+            .sidebar{
+                width: 15%;
+                float: right;
+                background-color: rgb(127, 231, 197);
+            }
+            .main{
+                width: 70%;
+                float: left;
+                background-color: rgb(185, 180, 180);
+            }
+            
+            .leftbar, .main, .sidebar{
+                min-height: 600px	
+            }
+           
+
+
+            #footer{
+                clear:both;
+                background-color: rgb(59, 122, 173);
+                height: 50px;
+                width: 100%;
+                text-align: center;
+            }
+
+            @media screen and (max-width: 700px) {
+                .leftbar{
+                    width: 100%;
+                    min-height: 60px;
+                    position: relative;
+                }
+                .leftbar a{
+                    float: left;
+                }
+
+                img{
+                    margin-left: 10px;
+                }
+                .sidebar{
+                    width: 100%;
+                    min-height: 60px;
+                    position: relative;
+                }
+                .main{
+                    width: 100%;
+                }
+            }
+            
+			
+        </style>
+    </head>
+    <body>
+        <div class="head">
+            <header>
+                <a href="a.html"><img src="logo2.png" alt="Logo"></a>
+              
+               <h1> About Us</h1>
+            </header>
+        </div>
+
+        <div class="leftbar">
+           <a href="Layout.html">Home  </a> 
+            <a href="about.html" class="active">About Us</a>
+            <a href="">Contact Us</a>
+         
+        </div>
+        <div class="sidebar">
+           
+        </div>
+        <div class="main">
+            
+        </div>
+
+       <div id="footer">
+           
+        </div>
+    </body>
+</html>
