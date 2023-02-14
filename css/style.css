@@ -1,0 +1,53 @@
+body{
+    background-color: #faebd7;
+}
+.container{
+    display: grid;
+}
+.card{
+    width: 400px;
+    height: 200px;
+    border: 1px solid black;
+    display: inline;
+    margin-top: 20px;
+    padding: 10px;
+    line-height: 25px;
+    margin-left: 25px;
+}
+
+.image{
+    height: 50px;
+    width: 50px;
+    display: inline;
+    float: left;
+}
+
+.data{
+    display: inline;
+    float: right;
+}
+
+.college-info{
+}
+.data2{
+    display: inline;
+    float: left;
+    margin-top: 90px;
+    margin-left: -40px;
+
+}
+.icon{
+    height: 50px;
+    width: 50px;
+    display: inline;
+    float: right;
+    margin-top: 10px;
+
+}
+
+@media only screen and (min-width:768){
+    .container{
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+}
