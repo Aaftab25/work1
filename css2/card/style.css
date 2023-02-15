@@ -2,13 +2,15 @@ body{
     background-color: #fdead8;
 }
 
-.container{
-    margin: 0;
-    padding: 0;
-}
+    .container{
+        margin-left: 0;
+        padding: 0;
+    /* max-width: 1000px; */
+
+    }
 
 .card{
-    width: 100%;
+    max-width: 700px;
     height: auto;
     border: 1px solid black;
     background-color: #eeeeee;
@@ -73,16 +75,17 @@ strong{
     color:#038080;
 }
 
-@media only screen and (min-width: 752px){
+ @media only screen and (min-width: 778px){
     .container{
         display: grid;
         grid-template-columns: auto auto;
-        grid-template-rows: max-content;
-        justify-content: space-around;
+        /* justify-content: space-between; */
         grid-gap: 25px;
+        width: 500px;
+
     }
     .card{
-        width: 84%;
+        /* max-width: 500px; */
         height: 300px;
         font-size: large;
         margin: 0;
@@ -108,19 +111,19 @@ strong{
     }
 }
 
-
-@media only screen and (min-width: 992px){
+ 
+@media only screen and (min-width: 1400px){
     .container{
         display: grid;
         grid-template-columns: auto auto auto;
-        grid-template-rows: max-content;
-        grid-gap: 10px
+        gap: 10px;
+        
     }
     .card{
-        width: 84%;
+        max-width: 500px;
         height: 300px;
         font-size: large;
-        margin: 0;
+        margin: 10px;
     }
 
     .studentInfo{
@@ -142,5 +145,3 @@ strong{
         font-size: 22px;
     }
 }
-
-
