@@ -1,4 +1,6 @@
-
+.contentDetail{
+    width: 100%;
+}
 .reg{
     width: 100%;
     height: 50px;
@@ -206,7 +208,7 @@ textarea{
     padding: 30px
 }
 .machineImg img{
-    width: 100%;
+    width: 620px;
 }
 
 .machineInfo{
@@ -239,18 +241,17 @@ h4{
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    height: 520px;
+    height: auto;
     margin-top: 40px;
-    display: inline-block;
 }
 .image1{
     display: inline;
     float: left;
-    margin-left: 13%;
-
+    margin-left: 19%;
+    width: 356px;
 }
 .image1 img{
-    height: 270px;
+    width: 326px;
 }
 .image1 p{
     width: 380px;
@@ -260,11 +261,11 @@ h4{
 .image2{
     display: inline;
     float: left;
-    margin-left: 60px;
+    width: 356px;
 
 }
 .image2 img{
-    width: 395px;
+    width: 325px;
 }
 .image2 p{
     width: 380px;
@@ -274,20 +275,21 @@ h4{
 .image3{
     display: inline;
     float: left;
-    margin-left: 60px;
 
 }
 .image3 img{
-    width: 430px;
+    width: 340px;
 }
 .image3 p{
     width: 380px;
     
 }
 .btnLm{
-    display: block;
-    margin-top: 410px;
-    margin-left: 43%;
+    /* display: block; */
+    margin-top: 17px;
+    margin-left: 40%;
+    /* margin-right: auto; */
+    margin-bottom: 20px;
 }
 
 .btnLm button{
@@ -303,12 +305,12 @@ h4{
 
 .detailInfo{
     width: 100%;
-    height: 220px;
+    /* height: 220px; */
     border: 1px solid #959595;
     display: flex;
     flex-wrap: wrap;
     background-color: #959595;
-
+justify-content: space-around;
     color: white;
 
 }
@@ -317,26 +319,19 @@ span {
     font-weight: bold;    
 }
 
-.detailInfo div{
-    margin-left: 150px;
-}
 
-.help{
-    display: flex;
-    flex-wrap: wrap;
-    width: 5%;
-    margin-left: 100px;
+.help ul{
+    /* margin-left: 100px; */
+    list-style: none;
 
 }
 .product{
     display: flex;
     flex-wrap: wrap;
-    width: 5%;
     margin-left: 50px;
 }
 .company{
     display: block;
-    width: 3%;
     margin-left: 50px;
 }
 .footer{
@@ -408,9 +403,6 @@ span {
         line-height: 20px;
     }
 
-
-
-
     .box {
         display: flex;
         flex-wrap: nowrap;
@@ -427,7 +419,25 @@ span {
         width: 55%;
         
     }
-    
-   
+    .machineImg{
+        width: 50%;
+        margin-left: 220px;
+    }
+    .machineInfo{
+        width: 50%;
+        margin-left: 30%;
+    }
+    .image1{
+        width: 50%;
+        margin-left: 30%;
+    }
+    .image2{
+        width: 50%;
+        margin-left: 30%;
+    }
+    .image3{
+        width: 50%;
+        margin-left: 30%;
+    }
     
 }
