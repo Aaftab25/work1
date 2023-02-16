@@ -1,5 +1,4 @@
 
-
 .reg{
     width: 100%;
     height: 50px;
@@ -27,12 +26,14 @@
     height: auto;
     margin-top: 7px;
     padding-bottom: 20px;
-    display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     border-bottom: 1px solid gray;
 }
-
+.head div{
+    display: flex;
+    justify-content: space-between;
+}
 .logo{
     display: flex;
     float: left;
@@ -51,7 +52,8 @@
 .contact h1{
     line-height: 0px;
 }
-.nav{
+.nav ul{
+    
     display: flex;
     flex-wrap: wrap;
     margin-left: 80px;
@@ -59,15 +61,16 @@
     
 }
 
+
 .nav ul li{
+    position: static;
     list-style: none;
-    float: left;
     margin-left: 80px;
     color: gray;
     font-weight: bold;
     font-size: 20px;
     margin-bottom: 17px;
-}
+} 
 .nav a{
     width: 150px;
     padding: 10px;
@@ -86,12 +89,12 @@
 }
 
 .headLine{
-    display: block;
-    float: left;
-    width: 45%;
+  
+    width: 35%;
     margin-left: 230px;
 }
 .headLine h1{
+    display: block;
     font-size: 55px;
 }
 .headLine h2{
@@ -115,11 +118,12 @@
 
 }
 .regDetail{
-    display: block;
-    float: right;
-    width: 620px;
+    display: flex;
+    flex-wrap: wrap;
+    /* float: right; */
+    width: 470px;
     height: auto;
-    margin-right: 140px;
+    margin-left: 110px;
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -136,7 +140,7 @@ textarea{
 
 }
 .btn{
-    width: 420px;
+    width: 417px;
     height: 35px;
     margin-top: 20px;
     margin-left: 25px;
@@ -148,6 +152,8 @@ textarea{
     font-weight: bold;
 }
 .msgInfo{
+    display: flex;
+    flex-wrap: wrap;
     width: 99%;
     height: auto;
     background-color: #429bdd;
@@ -155,14 +161,13 @@ textarea{
 }
 
 .msg{
-    display: flex;
-    float: left;
-    width: 45%;
+    width: 46%;
     margin-left: 220px;
     word-spacing: 5px;
     font-size: 17px;
     color: white;
 }
+
 .msg h1{
     line-height: 10px;
     font-size: 40px;
@@ -170,13 +175,11 @@ textarea{
 .msg p{
     font-size: 19px;
 }
-.box{
-    display: flex;
-    flex-wrap: wrap;
+.box {
     float: right;
-    width: 20%;
+    width: 23%;
     margin-top: 60px;
-    margin-right: 100px;
+    margin-left: 203px;
 }
 .box button{
     width: 180px;
@@ -188,7 +191,8 @@ textarea{
 }
 
 .videImg{
-
+    display: flex;
+    flex-wrap: wrap;
     width: 100%;
     height: auto;
     border-bottom: 1px solid rgb(197, 185, 185);
@@ -207,16 +211,17 @@ textarea{
 
 .machineInfo{
     float: right;
-    width: 25%;
-    margin-right: 340px;
+    width: 27%;
     padding: 10px;
-    text-align: justify;
-    font-size: 20px;
-    margin-top: 20px;
     color: #555557;
 }
+
+h4{
+    font-size: 30px;
+    /* line-height: 10px; */
+}
 .machineInfo h1{
-    font-size: 70px;
+    font-size: 64px;
     line-height: 10px;
 }
 .machineInfo button{
@@ -342,7 +347,7 @@ span {
     color: white;
 }
 
-@media only screen and (max-width:772px){
+@media only screen and (max-width:770px){
     .contentDetail{
         display: grid;
         grid-template-columns: auto;
@@ -367,4 +372,62 @@ span {
         font-size: 40px;
         line-height: 20px;
     }
+}
+
+@media only screen and (max-width:1300px){
+    .contentDetail{
+        display: grid;
+        grid-template-columns: auto;
+    }
+    .reg{
+        width: auto;
+    }
+    .contact{
+        margin-left: 80px;
+    }
+    .nav{
+        margin-left: 59px;
+    }
+    .nav ul li{
+        margin-left: 29px;
+    }
+    .regDetail{
+        margin-left: 200px;
+    }
+    .headLine{
+  
+        width: 50%;
+        margin-left: 230px;
+    }
+    .msg h1{
+        font-size: 35px;
+        line-height: 40px;
+    }
+    .machineInfo h1{
+        font-size: 40px;
+        line-height: 20px;
+    }
+
+
+
+
+    .box {
+        display: flex;
+        flex-wrap: nowrap;
+        float: right;
+        width: 55%;
+        height: 44px;
+        margin-top: 33px;
+        /* margin-left: 324px; */
+        justify-content: space-around;
+        padding-bottom: 13px;
+    }
+    
+    .msg {
+        width: 55%;
+        
+    }
+    
+   
+    
 }

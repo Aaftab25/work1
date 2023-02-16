@@ -3,7 +3,7 @@ body{
 }
 
     .container{
-        margin-left: 0;
+        margin: 30px;
         padding: 0;
     /* max-width: 1000px; */
 
@@ -85,7 +85,7 @@ strong{
 
     }
     .card{
-        /* max-width: 500px; */
+        max-width: 600px;
         height: 300px;
         font-size: large;
         margin: 0;
@@ -112,7 +112,7 @@ strong{
 }
 
  
-@media only screen and (min-width: 1400px){
+@media only screen and (min-width: 1300px){
     .container{
         display: grid;
         grid-template-columns: auto auto auto;
