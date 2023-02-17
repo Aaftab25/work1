@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu List</title>
+    <style>
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .head {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            height: auto;
+            border: 1px solid;
+            justify-content: space-between;
+            background-color: black
+        }
+
+        img {
+            height: 90px;
+            width: 120px;
+            padding: 10px;
+        }
+
+        .nav {
+            font-size: 25px;
+            margin-top: 15px;
+            margin-left: auto;
+            margin-right: auto;
+            /* margin-right: 10%; */
+        }
+
+        .nav ul {
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .nav ul li {
+            margin-left: 50px;
+            list-style: none;
+
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: white;
+
+        }
+
+        .left_list {
+            width: 25%;
+            /* float: left; */
+            background-color: rgb(215, 250, 250);
+            height: 820px;
+            text-align: center;
+            font-size: 20px;
+            overflow: auto;
+        }
+
+        .left_list ul li a {
+            display: flex;
+            color: black;
+            margin-top: 20px;
+            text-decoration: none;
+
+        }
+
+        .main_list {
+            width: 70%;
+            height: 890px;
+            float: left;
+            margin-left: 30px;
+            overflow: hidden;
+        }
+
+        #intro {
+            height: 890px;
+
+        }
+
+        #into h1 {
+            font-size: 45px;
+        }
+
+        #intro p {
+            font-size: x-large;
+
+        }
+        #ver{
+            height: 890px;
+        }
+      
+        #c_intro{
+            height: 800px;
+            margin-top: 50px;
+
+        }
+        #c_intro p {
+            font-size: x-large;
+
+        }
+        #about{
+            height: 890px;
+        }
+        #about img{
+            width: 70%;
+            height: auto;
+            margin-top: 50px;
+        }
+        #contact{
+            height: 890px;
+        }
+        #contact img{
+            width: 70%;
+            height: auto;
+            margin-top: 50px;
+        }
+        
+        @media only screen and (max-width:700px)
+        {
+            .container{
+                display: grid;
+                grid-template-columns: auto;
+            }
+            .left_list{
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <div class="logo">
+                <img src="radixweb.jpg" alt="Radix Web">
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="left_list">
+            <ul>
+                <strong>
+                    <li><a href="#home">Html</a></li>
+                </strong>
+                <ul>
+                    <li><a href="#intro">Introducion</a></li>
+                    <li><a href="#ver">Version</a></li>
+                </ul>
+                <strong>
+                    <li><a href="#css">Css</a></li>
+                </strong>
+                <ul>
+                    <li><a href="#c_intro">Introducion</a></li>
+                </ul>
+
+            </ul>
+        </div>
+        <div class="main_list">
+            <div id="home">
+                <div id="intro">
+                    <h1>HTML</h1>
+                    <p>
+                        HTML stands for Hyper Text Markup Language. HTML is the standard markup language
+                        for creating Web pages. HTML describes the structure of a Web page. HTML consists
+                        of a series of elements. HTML elements tell the browser how to display the content.
+                    </p>
+
+                </div>
+                <div id="ver">
+                    <h1>HTML 1.0</h1>
+                    <p>
+                        The basic version of HTML has support for basic elements like text controls and images. This was
+                        the very basic version of HTML with less support for a wide range of HTML elements. It does not
+                        have rich features like styling and other things that were related to how content will be
+                        rendered in a browser.
+                    </p>
+                    <h1>HTML 2</h1>
+                    <p>
+                        Now a standard got started to develop so as to maintain common rules and regulations across
+                        different browsers. HTML 2.0 has improved a lot in terms of the markup tags. In HTML 2.0 version
+                        concept of form came into force. Forms were developed, but still, they had basic tags like text
+                        boxes, buttons, etc.
+                    </p>
+                    <h1>HTML 3.2</h1>
+                    <p>
+                        It was developed in 1997. After HTML 2.0 was developed, the next version of HTML was 3.2
+                        With version 3.2 of HTML, HTML tags were further improved. It is worth noting that because of
+                        W3C standard maintenance, the newer version of HTML was 3.2 instead of 3
+                    </p>
+                    <h1>HTML 4.01</h1>
+                    <p>
+                        It was developed in 1999. It extended the support of cascading styling sheets. In version 3.2,
+                        CSS were embedded in HTML page itself. Therefore, if the website has various web pages to apply
+                        to the style of each page, we must place CSS on each web page. Hence there was a repetition of
+                        the same block of CSS.
+                    </p>
+                    <h1>HTML5</h1>
+                    <p>
+                        This is the latest version of HTML. For a developer, it could be used in 2014. It came up with
+                        lots of HTML tags support. HTML5 provided support for new form elements like input element s of
+                        different types; geolocations support tags, etc.
+                    </p>
+                </div>
+            </div>
+            <div id="css">
+                <div id="c_intro">
+                    <h1>Css Introducion</h1>
+                    <h2>Cascading Style Sheets</h2>
+                    <p>
+                        CSS (Cascading Style Sheets) is used to style and layout web pages — for example, to alter the font,
+                        color, size, and spacing of your content, split it into multiple columns, or add animations and
+                        other decorative features.
+                    </p>
+                </div>
+            </div>
+            
+            <div id="about">
+                <img src="about.jpg" alt="about us">
+            </div>
+            <div id="contact">
+                <img src="contact.jpeg" alt="contact us">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
