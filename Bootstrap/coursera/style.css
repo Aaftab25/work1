@@ -1,0 +1,108 @@
+.form-control{
+    display: inline-block;
+    width: 40%;
+}
+.info{
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-around; */
+    justify-content: center;
+    border-bottom: 1px solid;
+    position: relative;
+    /* width: 70%; */
+}
+.info_detail{
+    width: 570px;
+    margin-top: 20px;
+    
+}
+.info_detail h1{
+    font-size: 65px;
+}
+.info_detail p{
+    font-size: 18px;
+}
+
+.image1{
+    width: 450px;
+}
+.company{
+    width: 100%;
+    padding-top: 10px;
+    background-color: #f5f5f5;
+    justify-content: center;
+}
+.company a{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+.company span{
+    color: blue;
+    text-decoration: underline;
+}
+.images{
+    display: flex;justify-content: space-between;
+    width: 20%;
+    height: 120px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.images img{
+    margin-left: 20px;
+    /* justify-content: center; */
+    /* width: 60%;
+    height: 40%; */
+}
+ .iitb_img{
+    width: 100px;
+    height: 70px;
+    padding-bottom: 30px;
+}
+.iitr_img{
+    width: 100px;
+    height: 40px;
+    background: transparent;
+}
+.google_img{
+    width: 90px;
+    height: 30px;
+}
+.u-m_img{
+    width: 60px;
+    height: 40px;
+}
+.ibm_img{
+    width: 60px;
+    height: 30px;    
+}
+.iim_img{
+    width: 60px;
+    height: 40px;
+}
+.stanford_img{
+    width: 70px;
+    height: 30px;
+    /* padding-bottom: 90px; */
+}
+.meta_img{
+    width: 70px;
+    height: 40px;
+} 
+.amazon_img{
+    width: 60px;
+    height: 30px;
+} 
+.isb_img{
+    width: 100px;
+    height: 60px;
+} 
+.course{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.skill{
+    margin-left: 15%;
+    margin-right: 15%;
+}
