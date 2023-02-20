@@ -42,11 +42,13 @@
     text-decoration: underline;
 }
 .images{
-    display: flex;justify-content: space-between;
-    width: 20%;
-    height: 120px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: auto;
     margin-left: 15%;
     margin-right: 15%;
+    padding-bottom: 50px;
 }
 .images img{
     margin-left: 20px;
@@ -55,12 +57,12 @@
     height: 40%; */
 }
  .iitb_img{
-    width: 100px;
+    width: 70px;
     height: 70px;
     padding-bottom: 30px;
 }
 .iitr_img{
-    width: 100px;
+    width: 60px;
     height: 40px;
     background: transparent;
 }
@@ -100,6 +102,7 @@
 .course{
     margin-left: 15%;
     margin-right: 15%;
+    padding: 60px;
 }
 
 .skill{
@@ -111,7 +114,6 @@
 .universities{
     margin-left: 15%;
     margin-right: 15%;
-    padding-bottom: 100px;
 }
 .universities img{
     height: 100px;
@@ -120,4 +122,130 @@
 .explore{
     margin-left: 15%;
     margin-right: 15%;
+}
+.explore .card{
+    max-width: 300px;
+    height: 85px;
+}
+.explore .card img{
+    width: 83px;
+    height: 83px;
+}
+.explore .card .col-md-4{
+    width: 81px;
+}
+.explore .card .card-body{
+    font-size: 12px;
+    width: 233px;
+}
+.photoInfo_containt{
+    
+    margin-top: 150px;
+    background-color: #e9f4fe;
+}
+.photoInfo{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 15%;
+    margin-right: 10%;
+}
+.photo img{
+    max-width: 600px;
+    max-height: 400px;
+    float: left;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+.pinfo{
+    margin-top: 20px;
+    padding: 40px;
+    width: 50%;
+}
+
+.aboutCourse{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+.advance{
+    font-size: 12px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.advance h3{
+    font-size: 15px;
+    padding-left: 29px;
+}
+.advance li{
+    list-style: none;
+}
+
+.aboutCoursera{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.community{
+    font-size: 12px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.community h3{
+    font-size: 15p;
+    padding-left: 29px;
+}
+.community li{
+    list-style: none;
+}
+.apple{
+    display: block;
+    width: 200px;
+}.apple img{
+    padding-bottom: 40px;
+}
+
+.cr{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-top: 1px solid gray;
+    padding: 50px;
+    font-size: 12px;
+}
+.cr img{
+    margin-left: 10px;
+    width: 25px;
+}
+footer{
+    background-color: #f5f5f5;
+    padding-top: 20px;
+}
+
+.profesional_containt{
+    /* display: flex; */
+}
+.professional{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 15%;
+    margin-right: 10%;
+    margin-top: 50px;
+}
+.profesional_photo{
+    max-width: 600px;
+    max-height: 400px;
+    float: left;
+}
+.profesional_Info{
+    padding: 70px;
+    width: 50%;
+    line-height: 40px;
 }
