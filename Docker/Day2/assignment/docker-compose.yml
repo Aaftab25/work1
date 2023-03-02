@@ -1,0 +1,21 @@
+version: '3'
+services:
+  node:
+    image: node:latest
+    working_dir: /app
+    volumes:
+      - ./:/app
+    command:
+      - npm install
+      - npm run dev
+    
+  nginx1:
+    image: nginx:latest
+    ports:
+      - "5002:80"
+    working_dir: /app
+    volumes:
+      - ./:/usr/share/nginx/html/
+    depends_on:
+      - node
+     
