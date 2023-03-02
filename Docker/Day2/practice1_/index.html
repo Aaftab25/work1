@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Employee</title>
+    </head>
+    <body>  
+        
+            <section>
+
+                <div class="page">
+                    <form>
+                    <table aria-describedby="employee_form">
+                        <tr>
+                             <th id="emp" colspan="2">
+                    <h1> Employee Details Form</h1>
+
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="text"><label for="key">Employee Name</label>  </td>
+                            <td>
+                                <input type="text" class="txtbox" id="key" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text"><label for="value">Age</label>  </td>
+                            <td>
+                                <input type="number" class="txtbox"  min="18" max="55" id="value" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text"> Gender </td>
+                            <td>
+                                <input type="radio" class="rbtn" id="gender" value="male" required/><span class="text">Male</span>
+                                <input type="radio" class="rbtn" id="gender" value="female" required/><span class="text">Female</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text">  Designation </td>
+                            <td>
+                                <input type="text" class="txtbox" id="desi" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text"> Salary </td>
+                            <td>
+                                <input type="number" class="txtbox" class="txtbox" id="salary" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text"> Location </td>
+                            <td>
+                                <input type="text" class="txtbox" id="location" required/>
+                            </td>
+                        </tr> <tr>
+                            <td class="text"> Email ID </td>
+                            <td>
+                                <input type="email" class="txtbox" id="email" required/>
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td class="text"> Date of Joining </td>
+                            <td>
+                                <input type="date" class="txtbox" id="doj" required/>
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td class="text"> Contact Number </td>
+                            <td>
+                                <input type="tel" class="txtbox" id="con" required/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <input type="submit" name="btn" class="btn" value="submit">
+                                </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            </section>
+
+            
+        
+    </body>
+</html>
