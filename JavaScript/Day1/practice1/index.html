@@ -7,26 +7,55 @@
         <title>Document</title>
     </head>
     <body>
-        
+        <main>
+            <div>
+                <p id="a"></p>
+                <p id="b"></p>
+                <p id="c"></p>
+                <p id="ans1"></p>
+                <p id="ans2"></p>
+               
+            </div>
+        </main>
     </body>
     <script>
-        var A = parseFloat(prompt("What is number of A ?"));
-        var B = parseFloat(prompt("What is number of B ?"));
-        var C = parseFloat(prompt("What is number of C ?"));
+        var A = parseInt(prompt("What is number of A ?"));
+        var B = parseInt(prompt("What is number of B ?"));
+        var C = parseInt(prompt("What is number of C ?"));
 
-        if(A == B == C){
+        if(A == B && B == C){
             console.log("All are Same");
+            document.getElementById('ans1').innerHTML = "All are Same";
 
         }else if(A > B && A > C){
             console.log("A is greater "+A);
+            document.getElementById('ans1').innerHTML = "A is greater "+A;
         }
         else if(B > A && B > C){
             console.log("B is greater "+B);
-
+            document.getElementById('ans1').innerHTML = "B is greater "+B;
         }else {
             console.log("C is greater "+C);
+            document.getElementById('ans1').innerHTML = "C is greater "+C;
         }
 
+        document.getElementById('a').innerHTML = "A is "+A;
+        document.getElementById('b').innerHTML = "B is "+B;
+        document.getElementById('c').innerHTML = "C is "+C;
+        temp = 0 ;
+        if(A>40 && B>40 && C>40){
+            
+            document.getElementById('ans2').innerHTML = "Total of A+B+C = "+ (A+B+C);
+        }
+        else if(A>40 && B>40){
+            document.getElementById('ans2').innerHTML = "Total of A+B = "+ (A+B);
+        }
+        else if(A>40 && C>40){
+            document.getElementById('ans2').innerHTML = "Total of A+C = "+ (A+C);
+        }
+        else if(B>40 && C>40){
+            document.getElementById('ans2').innerHTML = "Total of B+C = "+ (B+C);
+        }
      
     </script>
 </html>

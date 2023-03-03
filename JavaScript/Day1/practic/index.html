@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <title>Form</title>
+    <script>
+
+
+array=[] 
+  citylist = {
+ "Maharastra" : ["Ahmednagar", "Akola", "Amravati", "Aurangabad", "Baramati", "Chalisgaon", "Chinchani", "Devgarh", "Dhule", "Dombivli", "Durgapur", "Ichalkaranji", "Jalna", "Kalyan", "Latur", "Loha", "Lonar", "Lonavla", "Mahad", "Mahuli", "Malegaon", "Malkapur", "Manchar", "Mangalvedhe", "Mangrulpir", "Manjlegaon", "Manmad", "Manwath", "Mehkar", "Mhaswad", "Miraj", "Morshi", "Mukhed", "Mul", "Mumbai", "Murtijapur", "Nagpur", "Nalasopara", "Nanded-Waghala", "Nandgaon", "Nandura", "Nandurbar", "Narkhed", "Nashik", "Navi Mumbai", "Nawapur", "Nilanga", "Osmanabad", "Ozar", "Pachora", "Paithan", "Palghar", "Pandharkaoda", "Pandharpur", "Panvel", "Parbhani", "Parli", "Parola", "Partur", "Pathardi", "Pathri", "Patur", "Pauni", "Pen", "Phaltan", "Pulgaon", "Pune", "Purna", "Pusad", "Rahuri", "Rajura", "Ramtek", "Ratnagiri", "Raver", "Risod", "Sailu", "Sangamner", "Sangli", "Sangole", "Sasvad", "Satana", "Satara", "Savner", "Sawantwadi", "Shahade", "Shegaon", "Shendurjana", "Shirdi", "Shirpur-Warwade", "Shirur", "Shrigonda", "Shrirampur", "Sillod", "Sinnar", "Solapur", "Soyagaon", "Talegaon Dabhade", "Talode", "Tasgaon", "Tirora", "Tuljapur", "Tumsar", "Uran", "Uran Islampur", "Wadgaon Road", "Wai", "Wani", "Wardha", "Warora", "Warud", "Washim", "Yevla", "Uchgaon", "Udgir" ],
+ "Gujarat" : ["Ahmedabad","Amreli","Anand","Ankleshwar","Bharuch","Bhavnagar","Bhuj","Cambay","Dahod","Deesa","Dharampur","Dholka","Gandhinagar","Godhra","Himatnagar","Idar","Jamnagar","Junagadh","Kadi","Kalavad","Kalol","Kapadvanj","Karjan","Keshod","Khambhalia","Khambhat","Kheda","Khedbrahma","Kheralu","Kodinar","Lathi","Limbdi","Lunawada","Mahesana","Mahuva","Manavadar","Mandvi","Mangrol","Mansa","Mehmedabad","Modasa","Morvi","Nadiad","Navsari","Padra","Palanpur","Palitana","Pardi","Patan","Petlad","Porbandar","Radhanpur","Rajkot","Rajpipla","Rajula","Ranavav","Rapar","Salaya","Sanand","Savarkundla","Sidhpur","Sihor","Songadh","Surat","Talaja","Thangadh","Tharad","Umbergaon","Umreth","Una","Unjha","Upleta","Vadnagar","Vadodara","Valsad","Vapi","Vapi","Veraval","Vijapur","Viramgam","Visnagar","Vyara","Wadhwan","Wankaner"]
+} 
+
+
+function state (value){
+    if(value.length == 0){
+      document.getElementById('city').innerHTML = "<option></option>";
+    }
+    else{
+      console.log(value);
+      var cityOption
+      for(let id in citylist[value]){
+        cityOption += "<option>" + citylist[value][id] + "</option>";
+      }
+      document.getElementById('city').innerHTML = cityOption;
+    }
+}
+    </script>
+  </head>
+  <body>
+    <main>
+      <div class="container p-5 w-50">
+        <div class="border shadow p-5 w-75 tex-center mx-auto">
+          <div class="d-flex justify-content-center">
+            <h1 class="text-primary shadow-sm  fs-1 p-3">Employe Details</h1>
+          </div>
+          <div class="d-flex">
+              <label for="nm" class="my-auto me-4">Name</label>
+              <input type="text" class="form-control m-3" name="" id="">
+          </div>
+          <div class="d-flex">
+              <label for="phone" class="my-auto me-4">Phone</label>
+              <input type="text" class="form-control m-3">
+          </div>
+          <div class="d-flex">
+              <label class="my-auto me-4">Email</label>
+              <input type="text" class="form-control m-3">
+          </div>
+          <div class="d-flex">
+            <label class="my-auto me-4">Gender</label>
+            <input type="radio" class="form-check-input mx-3" name="Gender" ><span>Male</span>
+            <input type="radio" class="form-check-input mx-3" name="Gender" ><span>Feale</span>
+          </div>
+          <div class="d-flex">
+            <label class="my-auto me-4">Address</label>
+            <textarea name="address"  class="form-control m-3"></textarea>
+          </div>
+          <div class="d-flex">
+            <label class="my-auto me-4">State</label>
+            <select id="State" class="form-select m-3" onchange="state(value)">
+              <option disabled selected>Select State</option>
+              <option value="Gujarat">Gujarat </option>
+              <option value="Maharastra" >Maharastra </option>
+            </select>
+          </div>
+          <div class="d-flex">
+            <label class="my-auto me-4">City  </label>
+            <select id="city" class="form-select m-3">
+              <option value="" disabled selected>Select City</option>
+            </select>
+          </div>
+          <div class="d-flex">
+            <label class="my-auto me-4"></label>
+          </div>
+          <div class="d-flex">
+            <button class="btn btn-outline-primary mx-auto px-4 mt-3">Submit </button>
+          </div>
+        
+        </div>
+
+      </div>
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
