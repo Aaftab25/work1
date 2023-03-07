@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+    <main class="container mt-5">
+        <div>
+            <form action="" class="form-control p-5 w-75 mx-auto">
+                <div>
+                    <label for="">Name:</label>
+                    <input type="text" class="form-control my-2">
+                </div>
+                <div>
+                    <label for="">Email:</label>
+                    <input type="text" class="form-control my-2">
+                </div>
+                <div class="d-flex mt-4">
+                    <label for="" class="me-4">Gender</label>
+                    <input type="radio" name="gender" class="form-check-input ms-3" id=""><span class="ms-2">Male</span>
+                    <input type="radio" name="gender" class="form-check-input ms-3" id=""><span class="ms-2">Female</span>
+                </div>
+                <div class="d-flex my-2">
+                    <label for="" class="me-4">Status</label>
+                    <input type="radio" name="status" class="form-check-input ms-3" id=""><span class="ms-2">Active</span>
+                    <input type="radio" name="status" class="form-check-input ms-3" id=""><span class="ms-2">Inactive</span>
+                </div>
+                <div>
+                    <input type="button" class="btn btn-primary px-3 mt-4" value="Submit">
+                    <input type="button" class="btn btn-primary px-3 mt-4" onclick="getData()" value="Get Data">
+
+                </div>
+               
+            </form>
+
+            <div >
+                <form action="" class=" mx-auto mt-5 w-75">
+                    <table id="result" class="table table-striped ">
+                        
+                    </table>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script>
+            // createTable();
+            function createTable(result){
+                var tableData = `<tr>
+                            <th class="text-center p-3">#</th>
+                            <th class="text-center p-3">Name</th>
+                            <th class="text-center p-3">Email</th>
+                            <th class="text-center p-3">Gender</th>
+                            <th class="text-center p-3">Status</th>
+                            <th class="text-center p-3 mx-auto">Action</th> 
+                        </tr>`
+                for(i=0; i<=result.length; i++){
+                    console.log(result[i].id);
+                   tableData += `<tr>
+                            <td class="p-3">${result[i].id}</td>
+                            <td class="p-3">${result[i].name}</td>
+                            <td class="p-3">${result[i].email}</td>
+                            <td class="p-3">${result[i].gender}</td>
+                            <td class="p-3">${result[i].status}</td>
+                            <td class="p-3"><input type="button"  value="Update"  onclick="update(${result.id})" class="btn btn-warning ">
+                              <input type="button" value="Delete" onclick="delete(${result.id})" class="btn btn-danger"></td>
+                        </tr>`
+                    document.getElementById('result').innerHTML = tableData ;
+                }
+            }
+           
+            function getData(){
+                var requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+                };
+
+                fetch("https://gorest.co.in/public/v2/users", requestOptions)
+                .then(response => response.text())
+                // .then(result => console.log(result))
+                .then(result => createTable(JSON.parse(result)))
+                .catch(error => console.log('error', error));
+            }
+
+            
+    </script>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

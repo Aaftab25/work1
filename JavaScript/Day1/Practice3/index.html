@@ -1,29 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        <div>
-            <label>Name</label>
-            <input type="text" id="name" placeholder="Enter Your Name">
-            
-            <button type="submit" onclick="sub()">Submit</button>
-        </div>
 
-        <script>
-            String str = document.getElementById('name').value;
-            function sub(str) {
-                if(str == ""){
-                 alert("Input Box is Bland");
-                 console.log("Input Box is Bland")
-            }
-            }
-           
+<head>
+  <title>String Check</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main class="container w-50 mt-5 ">
+    <div class="border shadow  w-50 p-5">
+        <form action="" onsubmit="return sub()">
+            <div>
+                <h2 class="pb-5 text-primary">String is Blank or Not</h2>
+            </div>
+            <div>
+                <label>First Name</label>
+                <input type="text" name="name" id="name" class="form-control  my-3" value="" placeholder="Enter Your First Name" > 
+            </div>
+            <div>
+                <label>Last Name</label>
+                <input type="text" name="name" id="lname" class="form-control my-3" value="" placeholder="Enter Your Last Name">
+            </div>
+            <div class="w-50 mx-auto mt-5">
+                <input type="submit" class="btn btn-outline-info ms-5">
+            </div>
+        
+        <p id="total"></p>
+        <!-- <button type="submit" onclick="sub()">Submit</button> -->
+    </form>
+    </div>
+
+    <script>
+
+        function sub(){
+            var str = document.getElementById("name").value;
+            var lname = document.getElementById('lname').value;
             
-        </script>
-    </body>
+            
+
+
+            if(str == ""){
+             alert("Name Box is Bland");
+             return false;
+             console.log("Input Box is Bland");
+             
+            }else if(!isNaN(str)){
+
+                alert ("Please Enter String Value in First Name");
+            }
+            if(lname == ""){
+                alert("Last Name box is empty");
+
+            }else if(!isNaN(lname)){
+                alert ("Please Enter String Value in Last Name");
+
+            }  
+                  
+        }
+       
+        
+    </script>
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
 </html>
