@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>API</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -22,80 +22,205 @@
             <form action="" class="form-control p-5 w-75 mx-auto">
                 <div>
                     <label for="">Name:</label>
-                    <input type="text" class="form-control my-2">
+                    <input type="text" id="name" value="" class="form-control my-2">
                 </div>
                 <div>
                     <label for="">Email:</label>
-                    <input type="text" class="form-control my-2">
+                    <input type="text" id="email" class="form-control my-2">
                 </div>
                 <div class="d-flex mt-4">
                     <label for="" class="me-4">Gender</label>
-                    <input type="radio" name="gender" class="form-check-input ms-3" id=""><span class="ms-2">Male</span>
-                    <input type="radio" name="gender" class="form-check-input ms-3" id=""><span class="ms-2">Female</span>
+                    <input type="radio" name="gender" id="male" value="Male" class="form-check-input ms-3"><span
+                        class="ms-2">Male</span>
+                    <input type="radio" name="gender" id="female" value="Female" class="form-check-input ms-3"><span
+                        class="ms-2">Female</span>
                 </div>
                 <div class="d-flex my-2">
                     <label for="" class="me-4">Status</label>
-                    <input type="radio" name="status" class="form-check-input ms-3" id=""><span class="ms-2">Active</span>
-                    <input type="radio" name="status" class="form-check-input ms-3" id=""><span class="ms-2">Inactive</span>
+                    <input type="radio" name="status" id="active" value="Active" class="form-check-input ms-3"><span
+                        class="ms-2">Active</span>
+                    <input type="radio" name="status" id="inactive" value="Inactive" class="form-check-input ms-3"><span
+                        class="ms-2">Inactive</span>
                 </div>
                 <div>
-                    <input type="button" class="btn btn-primary px-3 mt-4" value="Submit">
+                    <input type="hidden" id="iddata">
+                    <input type="button" class="btn btn-primary px-3 mt-4" onclick="createData()" value="Submit">
                     <input type="button" class="btn btn-primary px-3 mt-4" onclick="getData()" value="Get Data">
-
+                    <input type="button" class="btn btn-primary px-3 mt-4" onclick="updateData()" value="Update">
                 </div>
-               
+
             </form>
 
-            <div >
+            <div>
                 <form action="" class=" mx-auto mt-5 w-75">
                     <table id="result" class="table table-striped ">
-                        
+
                     </table>
                 </form>
             </div>
         </div>
     </main>
     <script>
-            // createTable();
-            function createTable(result){
-                var tableData = `<tr>
+           
+
+        // createTable();
+        function createTable(result) {
+            var tableData = `<tr>
                             <th class="text-center p-3">#</th>
                             <th class="text-center p-3">Name</th>
                             <th class="text-center p-3">Email</th>
                             <th class="text-center p-3">Gender</th>
                             <th class="text-center p-3">Status</th>
-                            <th class="text-center p-3 mx-auto">Action</th> 
+                            <th colspan="2" class="text-center">Action</th> 
                         </tr>`
-                for(i=0; i<=result.length; i++){
-                    console.log(result[i].id);
-                   tableData += `<tr>
+            for (let i = 0; i <= result.length; i++) {
+                // console.log(result[i].id);
+                tableData += `<tr>
                             <td class="p-3">${result[i].id}</td>
                             <td class="p-3">${result[i].name}</td>
                             <td class="p-3">${result[i].email}</td>
                             <td class="p-3">${result[i].gender}</td>
                             <td class="p-3">${result[i].status}</td>
-                            <td class="p-3"><input type="button"  value="Update"  onclick="update(${result.id})" class="btn btn-warning ">
-                              <input type="button" value="Delete" onclick="delete(${result.id})" class="btn btn-danger"></td>
-                        </tr>`
-                    document.getElementById('result').innerHTML = tableData ;
-                }
+                            <td class="p-3"><input type="button"  value="Update"  onclick="update(${result[i].id})" class="btn btn-warning "></td>
+                             <td> <input type="button" value="Delete" onclick="deleteData(${result[i].id})" class="btn btn-danger"></td>
+                        </tr>`  
+                document.getElementById('result').innerHTML = tableData;
             }
-           
-            function getData(){
-                var requestOptions = {
-                method: 'GET',
-                redirect: 'follow'
-                };
+        }
 
-                fetch("https://gorest.co.in/public/v2/users", requestOptions)
+        function getData() {
+            var myHeaders = new Headers();
+            myHeaders.append("Authorization", "Bearer 8e546768ff3d53c910efe24bd88344db02dbd4e65cd683a81117ed828d41ba7a");
+            myHeaders.append("Cookie", "_gorest_session=uSkF0ThUi17CDNNStjYR2Xapc%2Bphh7i12pqkpHRpf2ipViYdBcBZ1ASHPtpK%2Fh22FzLQMu1%2F9GpMsISIVOgLq7gcB2t09eGEH9AX7rOjKomuHiV8Ch7YbR1wx3J2UtgORCrJz0ZYdGIoq%2B2k6YVxAzTMhyPVmYQNmkve4KclNyshwhnYeXxRVwNFhNyEq1RuAjfXVIKvhQUN8bws0iOxsNr6P3pcWW8sYncQPxUPFMehk70T7m5qpHUGAjI6jQG8B74qt9aebWiLz5CAx03K572OuyhNLXw%3D--YTlhfWh6jLH1Imwx--vX4KltbPOQyygyOAsq1wDA%3D%3D");
+
+            var requestOptions = {
+                method: 'GET',
+                headers: myHeaders,
+                redirect: 'follow'
+            };
+
+            fetch("https://gorest.co.in/public/v2/users", requestOptions)
                 .then(response => response.text())
-                // .then(result => console.log(result))
                 .then(result => createTable(JSON.parse(result)))
                 .catch(error => console.log('error', error));
-            }
+
+        }
+
+        function createData() {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let gender = document.querySelector("input[name='gender']:checked").value;
+            let status = document.querySelector("input[name='status']:checked").value;
+
+            var myHeaders = new Headers();
+            myHeaders.append("Authorization", "Bearer 8e546768ff3d53c910efe24bd88344db02dbd4e65cd683a81117ed828d41ba7a");
+            myHeaders.append("Content-Type", "application/json");
+            myHeaders.append("Cookie", "_gorest_session=QxnYNieBb3uXofU7W0IVW8qgpsmg%2BU7RGDnjtsaQ9xaDV4YHa8sHteUuGYpfINcySLzxVqZN7AeCCIcL2jMfDHO4e3n4w3SuUSAQT6WCUlxkD%2BdxvyGLRjYmkCiyPj2AAh2Z%2FtdQfRzxEywB9hEKJHHwtYBZPbhsYs4ZBqIDne4XbImGi0JH7KC9uVBBTUgb7pzycR8SkTyrlz6GqjSSmeA5JAJdAozl92NHFP0DVRogKOwzUFOx7tZF89AkFTpOW771SHqFaSBBYzKZGTFt6khnybWMpSU%3D--fgdrdqYxqRUm3eZP--cRaGJukgEInKpumP%2BlxKNg%3D%3D");
+
+            var raw = JSON.stringify({
+                "name": name,
+                "gender": gender,
+                "email": email,
+                "status": status
+            });
+
+            console.log(name);
+            console.log(email);
+            console.log(gender);
+            console.log(status);
+
+
+
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            fetch("https://gorest.co.in/public/v2/users", requestOptions)
+                .then(response => response.text())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+        }
+      
+        function update(id){
+            var myHeaders = new Headers();
+            myHeaders.append("Authorization", "Bearer 8e546768ff3d53c910efe24bd88344db02dbd4e65cd683a81117ed828d41ba7a");
+            myHeaders.append("Cookie", "_gorest_session=uSkF0ThUi17CDNNStjYR2Xapc%2Bphh7i12pqkpHRpf2ipViYdBcBZ1ASHPtpK%2Fh22FzLQMu1%2F9GpMsISIVOgLq7gcB2t09eGEH9AX7rOjKomuHiV8Ch7YbR1wx3J2UtgORCrJz0ZYdGIoq%2B2k6YVxAzTMhyPVmYQNmkve4KclNyshwhnYeXxRVwNFhNyEq1RuAjfXVIKvhQUN8bws0iOxsNr6P3pcWW8sYncQPxUPFMehk70T7m5qpHUGAjI6jQG8B74qt9aebWiLz5CAx03K572OuyhNLXw%3D--YTlhfWh6jLH1Imwx--vX4KltbPOQyygyOAsq1wDA%3D%3D");
+
+            var requestOptions = {
+                method: 'GET',
+                headers: myHeaders,
+                redirect: 'follow'
+            };
 
             
-    </script>
+            fetch(`https://gorest.co.in/public/v2/users/${id}`, requestOptions)
+            .then(response => response.text())
+            .then(result => 
+            {
+            let result1= JSON.parse(result)
+                document.getElementById('name').value = result1.name;
+                document.getElementById('email').value = result1.email;
+                document.getElementById(`${result1.gender}`).checked = true;
+                document.getElementById(`${result1.status}`).checked = true;
+                document.getElementById('iddata').value = result1.id;
+            }
+         )
+            .catch(error => console.log('error', error));
+        }
+
+        function updateData(){
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let gender = document.querySelector("input[name='gender']:checked").value;
+            let status = document.querySelector("input[name='status']:checked").value;
+            console.log(name,email,gender,status)
+            let iddata =  document.getElementById('iddata').value;
+            var myHeaders = new Headers();
+            myHeaders.append("Authorization", "Bearer 8e546768ff3d53c910efe24bd88344db02dbd4e65cd683a81117ed828d41ba7a");
+            myHeaders.append("Content-Type", "application/json");
+            myHeaders.append("Cookie", "_gorest_session=wnR8GHjvxdj48QfxpyGtx3nAvPp88IGbt1F0e0SuFXpEndwCJqAhHQdk%2Bya07Wg%2BHS3cEpQpB%2FJZ7sWb%2B%2F0lMZFA6nvp6icEruCYHwcipxI%2BTY0Wk7QjlOwagw%2Bm7t4HeqicyUdvRr4sWQZEri2TiDdxqiz6vh1PBuJkdyi0E%2BDiwwaLiaDFD1xmDDbxunBAIr8qwJL0MlKaC3ccfK8V9cjflJTJ1UE%2FfRMmnI2H9JWe5g0tI3sraVTKMROnChlQmUy%2BIg7Bib%2BKtIUCKssJzScl7BLkgT4%3D--WFMovaVpE%2BJ98ZkY--8zHhpa9PDxIpe%2FmFLVu9Ig%3D%3D");
+
+            var raw = JSON.stringify({
+            "name": name,
+            "email": email,
+            "status": status,
+            "gender": gender
+            });
+
+            var requestOptions = {
+            method: 'PATCH',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+            };
+
+            fetch(`https://gorest.co.in/public/v2/users/${iddata}`, requestOptions)
+            .then(response => response.text())
+            .then(result => getData())
+            .catch(error => console.log('error', error));
+        }
+
+        function deleteData(id){
+            var myHeaders = new Headers();
+            myHeaders.append("Authorization", "Bearer 8e546768ff3d53c910efe24bd88344db02dbd4e65cd683a81117ed828d41ba7a");
+         
+            myHeaders.append("Cookie", "_gorest_session=UKJ%2FDcGyUrLLV4RBoXSOQXvvNCGmKPyJ5tjjRsjDKnnLavgE9W2C%2BSDTN%2B0uy%2BHEjooO%2B2L6LXMTiZzvC662ApBMWOMFO8uJNTqvFhv5WVl%2F%2Bh6vaZjUdtrVE%2FFVDlrAot7ifnZ9wuIqQHNBtAssAMWANC71N8e%2FuESIpWyA52bIsq8E%2FnRWw1itxxk4pg%2BqYzTg7kD%2F%2F%2BrQ%2FbhilPsR2WZz3ttZ2tvmMWVQWBR3%2Bs2xpUPNPo5lxRmYf%2BJ5VbldimozvMjqPXYimF7ZszYczBw4f0qEMMU%3D--fNx3kJQKyzBS8%2Ftv--lBljaJVq989ILs1TWSuMew%3D%3D");
+
+            var requestOptions = {
+            method: 'DELETE',
+            headers: myHeaders,
+            redirect: 'follow'
+            };
+
+            fetch(`https://gorest.co.in/public/v2/users/${id}`, requestOptions)
+            .then(response => response.text())
+            .then(result => getData())
+            .catch(error => console.log('error', error));
+        }
+</script>
     <footer>
         <!-- place footer here -->
     </footer>
