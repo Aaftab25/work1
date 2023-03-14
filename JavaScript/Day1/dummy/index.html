@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+    <main>
+        <p id="demo"></p>
+        <script>
+
+//------------------------------------Splice Method -----------(To Add or Delete in Array Element)------------------------------------            
+            var phone = ["Redmi","Nokia","Smasung","Apple","Vivo"];
+            phone.splice(5, 0,"Oppo");
+            console.log(phone);
+
+
+//------------------------------------Slice Method ------(To Check Selected Array Element)-----------------------------------------            
+            const info = phone.slice(2,4);
+            console.log(info);
+
+//------------------------------------unshift Method ------------(To Add New Array Element form bengining)-----------------------------------            
+            phone.unshift("Nothing","Xiomi");
+            console.log(phone);
+
+//------------------------------------ Promises -----------------------------------------------            
+            function result(data){
+                console.log(data);
+            }
+            
+            let promise = new Promise(function (resolve, reject){
+                const s = 25 ;
+                if (s == 25){
+                     resolve("Success");
+                }
+                else{
+                    reject("Not Success");
+                }
+            });
+
+            promise.then(
+                function(value) {result(value);},
+                function(error) {result(error);}
+            );
+//------------------------------------ Promises with Time Out -----------------------------------------------            
+            let promises = new Promise( function(resolve,reject){
+                setTimeout(function(){resolve("Thank You")},2000);
+            })
+
+            promises.then(
+                function(value){document.getElementById("demo").innerHTML = value; console.log(value);}
+                )
+//------------------------------------ async/await -----------------------------------------------            
+            async function show(){
+                let promise = new Promise(function(resolve){
+                    x = 22;
+                    if(x == 22){
+                       setTimeout(function() {resolve("x valur is same");},3000);
+                    }
+                    else{
+                        resolve("x valur is not same");
+                    }
+                })
+                console.log(await promise);
+            }
+            show();
+
+
+        </script>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
