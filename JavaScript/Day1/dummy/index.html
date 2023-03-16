@@ -19,12 +19,17 @@
     </header>
     <main>
         <p id="demo"></p>
+        <p id="dis"></p>
+        <p id="data"></p>
+        <p id="phone"></p>
         <script>
 
-//------------------------------------Splice Method -----------(To Add or Delete in Array Element)------------------------------------            
+//------------------------------------Splice Method -----------(To Add or remove in Array Element)------------------------------------            
             var phone = ["Redmi","Nokia","Smasung","Apple","Vivo"];
             phone.splice(5, 0,"Oppo");
+            document.getElementById('phone').innerHTML = phone;
             console.log(phone);
+        
 
 
 //------------------------------------Slice Method ------(To Check Selected Array Element)-----------------------------------------            
@@ -63,19 +68,80 @@
                 function(value){document.getElementById("demo").innerHTML = value; console.log(value);}
                 )
 //------------------------------------ async/await -----------------------------------------------            
+
+            async function disData(){
+                 let data = new Promise(function(resolve){
+                    x=2;
+                    if(x == 2){
+                        resolve("Hello Friends.......");
+                    }
+                    else{
+                        resolve("Sorry....!");
+                    }
+                 });
+                 document.getElementById("dis").innerHTML = await data;
+                 console.log(await data);
+            }
+            disData();
+//------------------------------------ async/await with Time Out-----------------------------------------------            
             async function show(){
                 let promise = new Promise(function(resolve){
                     x = 22;
                     if(x == 22){
-                       setTimeout(function() {resolve("x valur is same");},3000);
+                       setTimeout(function() {
+                            resolve("x valur is same");
+                        },2000);
                     }
                     else{
                         resolve("x valur is not same");
                     }
                 })
                 console.log(await promise);
+
             }
             show();
+
+
+            function mainFunction(call) {
+                console.log("Performing operation...");
+                
+                // Use setTimeout to simulate an asynchronous operation
+                setTimeout(function() {
+                    call(5+5);
+                }, 1000);
+            }
+            
+            // Define the callback function
+            function callbackFunction(result) {
+                // if(main1Function()){
+                console.log("Result: " + result);
+            }
+
+            // Call the main function with the callback function
+            mainFunction(callbackFunction);
+
+
+            // Define an array of numbers
+            var numbers = [1, 2, 3, 4, 5];
+            var x = "" ;
+            var info1 = 0;
+            // Define the main function
+            function main1Function(callback, index) {
+            console.log("Performing operation...");
+            // Use Array.forEach to loop through the array of numbers
+            numbers.forEach(callback);
+            }
+
+            // Define the callback function
+            function callbackFunction1( number,x) {
+            console.log(x +"  Result: " + number);
+             info1 += number;
+            document.getElementById('data').innerHTML += info1+" ";
+            }
+
+        // Call the main function with the callback function
+        main1Function(callbackFunction1);
+        // This code is contributed by Veerendra Singh Rajpoot
 
 
         </script>

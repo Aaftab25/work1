@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+    <main class="container mt-5">
+        <div>
+            <button id="data"  class="btn btn-danger">Load Data</button>
+            Time(millis):<span id="sec"></span>
+            <form action="">
+                <table id="customer" class="table table-striped">
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zip</th>
+                    </tr>
+                    <tbody></tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+    <script>
+        $("#data").click(function(){
+            $("customer tbody").html("");
+            var start = new Date();
+            var custs = getCSdata();
+            var info = '';
+            for(var i = 0; i < custs.length; i++){
+                cust = custs[i];
+                info += `<tr>
+                            <td>${cust.name}</td>
+                            <td>${cust.address}</td>
+                            <td>${cust.city}</td>
+                            <td>${cust.state}</td>
+                            <td>${cust.zip}</td>
+                        </tr>`
+            }
+            $("#customer tbody").append(info);
+            
+            var sec = new Date().getTime() - start.getTime();
+            $("#sec").html(sec);
+            // var hour = (Math.floor((sec/60)/60));
+            // console.log(hour);
+
+            // var min = (Math.floor((sec/60)%60));
+            // console.log(min);
+
+            // var secs = (Math.floor((hour/60)+min)*60);
+            // console.log(secs);
+            
+        });
+
+        function getCSdata(){
+            var custs = [];
+            for(var i = 0; i < 4000; i++){
+                var cust = {
+                    id: 1,
+                    name: "Aaftab Shaikh",
+                    address: "Ahemadabad",
+                    city: "Ahemadabad",
+                    state: "Gujarat",
+                    zip: 40005
+                };                
+                custs.push(cust);
+                // console.log(custs);
+
+            }
+            return custs;
+        }
+    </script>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
