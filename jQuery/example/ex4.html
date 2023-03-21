@@ -34,25 +34,58 @@
         var prentData = $("<ul></ul>");
         
         $(productDetails).each((index,data)=>{
+            // if(data.productId == 1){
+            //     outerdata =  $("<li></li>").text(data.Name).appendTo(prentData);            
+
+            //     $(productDetails).each((index,d)=>{
+            //         var childData = $("<ul></ul>");
+            //         if(data.productId == d.parentId){
+            //             innerData = $("<li></li>").text(data.Name).appendTo(childData);
+            //         }  
+                   
+
+            //             $(outerdata).append(childData);
+                
+               
+            //     })
+
+            // }
+            // else if(data.productId == 2){
+            //     outerdata =  $("<li></li>").text(data.Name).appendTo(prentData);
+
+            //     $(productDetails).each((index,data)=>{
+            //         var childData = $("<ul></ul>");
+            //         if(data.parentId == 2){
+            //             innerData = $("<li></li>").text(data.Name).appendTo(childData);
+            //         }  
+
+            //             $(outerdata).append(childData);
+                
+            //     })
+
+            
+            // }
 
 
             if(data.parentId == "null"){
                 
-                var outerLi =  $("<li></li>").text(data.Name).appendTo(prentData); 
-                var datainfo = productDetails.filter(d=>d.parentId == d.productId);
-                // console.log(datainfo);
+                outerdata =  $("<li></li>").text(data.Name).appendTo(prentData);            
 
-                $(datainfo).each((idx,d)=>{
+                $(productDetails).each((index,d)=>{
                     var childData = $("<ul></ul>");
-                    var innerLi = $("<li></li>").text(d.Name).appendTo(childData);
+                    // for(let i=0; i<data.productId.length; i++){
+                    //     console.log(data.parentId[i].)
 
-                    $(outerLi).append(innerLi);
-                    
-                console.log(childData);
-                console.log(outerLi);
-                    
-                    
-                    
+                    // }
+                    if(data.productId == d.parentId){
+                        innerData = $("<li></li>").text(d.Name).appendTo(childData);
+                        // console.log(data.Name)
+                    }  
+                   
+
+                        $(outerdata).append(childData);
+                
+               
                 })
 
             }

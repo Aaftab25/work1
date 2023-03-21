@@ -10,8 +10,14 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js"
+        integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
 
 </head>
 
@@ -21,7 +27,7 @@
     </header>
     <main class="container mt-5">
         <div>
-            <form action="" class="form-control p-5 w-75 mx-auto">
+            <div class="form-control p-5 w-75 mx-auto">
                 <div>
                     <label for="">Name:</label>
                     <input type="text" id="name" value="" class="form-control my-2">
@@ -51,59 +57,234 @@
                     <input type="button" class="btn btn-primary px-3 mt-4" id="updateData" value="Update">
                 </div>
 
-            </form>
-
+            </div>
+            <!-- table-hover	
+            table-borderless
+            table-primary
+            align-middle" id="resgult"> -->
             <div>
-                <form action="" class=" mx-auto mt-5 w-75">
-                    <table id="result" class="table table-striped ">
+                <div class="table-responsive">
+                    <table class="table table-striped w-75 mx-auto mt-5">
+                        <tbody class="table-group-divider" id="result">
 
+                        </tbody>
                     </table>
-                </form>
+                </div>
+
             </div>
         </div>
     </main>
     <script>
-        $(document).ready(function(){
-            
-            $("#getData").click(function(){
+        $(document).ready(function () {
+
+
+
+
+            $("#getData").click(function () {
+
+                $('tbody').empty();
                 var settings = {
                     "url": "https://gorest.co.in/public/v2/users",
                     "method": "GET",
                     "timeout": 0,
+                    "headers": {
+                        "Authorization": "Bearer 8e546768ff3d53c910efe24bd88344db02dbd4e65cd683a81117ed828d41ba7a",
+                        "Content-Type": "application/json"
+                    },
                 };
 
                 $.ajax(settings).done(function (response) {
-                    console.log(response);
-    
-                    // $("#createTable").each(function(){
-                    var table = `<tr>
-                                    <th class="text-center p-3">#</th>
-                                    <th class="text-center p-3">Name</th>
-                                    <th class="text-center p-3">Email</th>
-                                    <th class="text-center p-3">Gender</th>
-                                    <th class="text-center p-3">Status</th>
-                                    <th colspan="2" class="text-center">Action</th> 
-                                </tr>`;
+                    // console.log(response);
 
-                    for(let i=0; i<response.length; i++){
-                        responses = response[i];
+                    // $("#createTable").each(function(){
+                    var row = $("<tr></tr>");
+
+                    $("<th class='text-center p-3'>#</th>").appendTo(row);
+                    $("<th class='text-center p-3'>Name</th>").appendTo(row);
+                    $("<th class='text-center p-3'>Email</th>").appendTo(row);
+                    $("<th class='text-center p-3'>Gender</th>").appendTo(row);
+                    $("<th class='text-center p-3'>Status</th>").appendTo(row);
+                    $("<th class='text-center ms-5 p-3'>Action</th>").appendTo(row);
+                    $("<th></th>").appendTo(row);
+                    // console.log(row);
+                    $(row).appendTo("#result")
+                    // for (let i = 0; i < response.length; i++) 
+                    $(response).each((index, responses) => {
+                        // responses = response;
                         // console.log(response[i]);
-                        table += `<tr>
-                                    <th class="text-center p-3">${response.id}</th>
-                                    <th class="text-center p-3">${response.name}</th>
-                                    <th class="text-center p-3">${response.email}</th>
-                                    <th class="text-center p-3">${response.gender}</th>
-                                    <th class="text-center p-3">${response.status}</th>
-                                    <th colspan="2" class="text-center">Action</th> 
-                                </tr>`;
-                                console.log(response.id);
-                    }
-                    $("#result").html(table);
+                        //   text=  $("body").html($("<button></button").text('Update').click(()=>{alert(response.id)}) );
+                        // console.log(text);
+                        let row1 = $("<tr></tr>");
+                        $(`<td class='text-center p-3'>${responses.id}</td>`).appendTo(row1);
+                        $(`<td class='text-center p-3'>${responses.name}</td>`).appendTo(row1);
+                        $(`<td class='text-center p-3'>${responses.email}</td>`).appendTo(row1);
+                        $(`<td class='text-center p-3'>${responses.gender}</td>`).appendTo(row1);
+                        $(`<td class='text-center p-3'>${responses.status}</td>`).appendTo(row1);
+                        $("<td class='text-center'></td>").html($(`<button class="btn btn-warning"></button>`).text("Update").click(() => { update(responses.id) })).appendTo(row1);
+                        $("<td class='text-center'></td>").html($(`<button class="btn btn-danger"></button>`).text("Delete").click(() => { remove(responses.id) })).appendTo(row1);
+                        // ).click(()=>{alert("Hello")}
+
+                        // $("#result").append(row)
+                        $(row1).appendTo("#result")
+                    })
                     // });
 
                 });
-                
+
+
             });
+
+            // $("#remove").click(function () {
+            function remove(id) {
+                alert("Are you Sure for Delete id " + id);
+                toastr.error(id, "This id Data is Deleted")
+                // alert("Hello")
+                // var Did = $("#remove").val();
+                var settings = {
+                    "url": `https://gorest.co.in/public/v2/users/${id}`,
+                    "method": "DELETE",
+                    "timeout": 0,
+                    "headers": {
+                        "Authorization": "Bearer 8e546768ff3d53c910efe24bd88344db02dbd4e65cd683a81117ed828d41ba7a"
+                    },
+                };
+
+                $.ajax(settings).done(function (response) {
+
+                    console.log(response);
+                    $("#getData").click();
+                });
+            }
+
+
+            $("#updateData").click(function () {
+                var name1 = $("#name").val();
+                var email1 = $("#email").val();
+                var gender1 = $("input[name='gender']:checked").val();
+                var status1 = $("input[name='status']:checked").val();
+                var iddata = $("#iddata").text();
+
+                var settings = {
+                    "url": `https://gorest.co.in/public/v2/users/${iddata}`,
+                    "method": "PATCH",
+                    "timeout": 0,
+                    "headers": {
+                        "Authorization": "Bearer 8e546768ff3d53c910efe24bd88344db02dbd4e65cd683a81117ed828d41ba7a",
+                        "Content-Type": "application/json"
+                    },
+
+                    "data": JSON.stringify({
+                        "name": name1,
+                        "email": email1,
+                        "gender": gender1,
+                        "status": status1
+                    }),
+
+                    success: function(json){
+                        toastr.success($(this).text(), "Your Data Updated");
+
+                    }
+                };
+
+                console.log(iddata);
+                // console.log(name1);
+                // console.log(email1);
+                // console.log(gender1);
+                // console.log(status1);
+                $.ajax(settings).done(function (response) {
+                    $("#getData").click();
+
+                    console.log(response);
+                });
+            });
+
+            function update(id) {
+                console.log(id);
+
+                var settings = {
+                    "url": `https://gorest.co.in/public/v2/users/${id}`,
+                    "method": "GET",
+                    "timeout": 0,
+
+                    "headers": {
+                        "Authorization": "Bearer 8e546768ff3d53c910efe24bd88344db02dbd4e65cd683a81117ed828d41ba7a",
+                        "Content-Type": "application/json"
+                    },
+                };
+
+                $.ajax(settings).done(function (Odata) {
+                    console.log(Odata);
+                    $("#name").val(Odata.name);
+                    $("#email").val(Odata.email);
+                    $(`#${Odata.gender}`).prop("checked", true)
+                    $(`#${Odata.status}`).prop("checked", true)
+                    $("#iddata").text(Odata.id)
+                });
+            };
+
+            $("#createData").click(function () {
+                var name1 = $("#name").val();
+                var email1 = $("#email").val();
+                var gender1 = $("input[name='gender']:checked").val();
+                var status1 = $("input[name='status']:checked").val();
+
+
+
+                var settings = {
+                    "url": "https://gorest.co.in/public/v2/users",
+                    "method": "POST",
+                    "timeout": 0,
+                    "headers": {
+                        "Authorization": "Bearer 8e546768ff3d53c910efe24bd88344db02dbd4e65cd683a81117ed828d41ba7a",
+                        "Content-Type": "application/json"
+                    },
+                    "data": JSON.stringify({
+                        "name": name1,
+                        "email": email1,
+                        "gender": gender1,
+                        "status": status1
+                    }),
+
+
+
+                    success: function (json) {
+                        console.log(json);
+                        toastr.success($(this).text(), "New Data Added");
+
+                    },
+
+                    error: function (json) {
+                       
+                            if (name1 == null || email1 == null || gender1 == null || status1 == null) {
+
+                                toastr.error($(this).text(), "Fill First Form");
+                                console.log(settings);
+                            }
+                            else if (email1) {
+                                toastr.error($(this).text(), "Email is Already Registerd");
+                            }
+                            else {
+                                success;
+                            }
+                            // });
+                        // });
+
+
+                    }
+                };
+
+             
+
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                    // return response>json([
+                    //     'errors'=>'';
+                    // ])
+
+                });
+            });
+
+
         });
     </script>
     <footer>

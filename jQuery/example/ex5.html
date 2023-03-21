@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+    <main class="container">
+        <div>
+            <!-- <button id="data">Add to Card</button> -->
+        </div>
+        <div>
+
+          
+            <input type="hidden" id="cid">
+            <div class=" ">
+                <div class="row gx-5 me-5 mt-5" id="info">
+
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+    </main>
+    <script>
+        $(document).ready(function () {
+            var settings = {
+                "url": "https://fakestoreapi.com/products/category/jewelery",
+                "method": "GET",
+                "timeout": 0,
+            };
+
+            $.ajax(settings).done(function (response) {
+                var info = "";
+                // console.log(response);
+                for (let i = 0; i < response.length; i++) {
+                    // console.log(response[i].rating);
+                    info = $(`<div class='card ms-4 '  style='width: 18rem;'>
+                                <img src='${response[i].image}' class='card-img-top ms-3' style="height:200px; width:200px;" alt='...'>
+                                <div class="card-body" id="info">
+                                    <h5 id="title">${response[i].title}</h5>
+                                    <p id="desc">${response[i].description}</p>
+                                    <p class="fs-3" id="price">${response[i].price}</p>
+                                    <p>Rating: ${response[i].rating.rate}  Count: ${response[i].rating.count}</p>
+                                </div>
+                            </div>`);
+                    $("<a href='#' class='btn btn-primary'></a>").text("Add to Cart").click(() => { collect(response[i].id) }).appendTo(info);
+
+
+                    $(info).appendTo("#info");
+                }
+
+
+
+               
+                function collect(id) {
+                    // console.log(id);
+                    storingData={
+                        id  :response[id-5].title,
+                        des:response[id-5].description,
+                        price:response[id-5].price
+                    }
+                    
+                    let card = JSON.parse(localStorage.getItem("info1")) || [];
+                    card.push(storingData);
+                    
+                    console.log(card.length);
+                    localStorage.setItem("info1", JSON.stringify(card));
+                }
+            });
+        });
+    </script>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
