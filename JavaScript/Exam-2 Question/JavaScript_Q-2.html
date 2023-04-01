@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+    <main class="container mt-5 w-50 ">
+        <div class="border p-5 w-75 shadow mx-auto">
+
+            <select name="" id="doc" class="form-control mt-4">
+                <option value="" disabled selected>Select Doctor</option>
+            </select>
+            
+            <select name="" id="patnts" class="form-control my-4">
+                <option value="" disabled selected>Select Paitents</option>
+            </select>
+            <div>
+                <div class="my-4">
+                    <button type="submit" class="btn btn-primary " id="sub">Submit</button>
+                </div>
+                <button type="button" class="btn btn-primary d-none" id="button1">Show data</button>
+                <div >
+                    <h2 class="text-center border py-3 bg-light text-primary">Appointment List</h2>
+                    <table class="table table-striped border text-center">
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>DoctorId</th>
+                            <th>Doctor Name</th>
+                            <th>Patient Id</th>
+                            <th>Patient Name</th>
+                        </tr>
+                    <tbody id="tabledata"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </main>
+    <script>
+        const DocterAndPatientList = {
+
+            "Doctors": [
+
+                {
+                    "Id": 1,
+                    "Name": "Dr. Bhargav"
+
+                },
+
+                {
+                    "Id": 2,
+                    "Name": "Dr. Karan"
+
+                },
+
+                {
+                    "Id": 3,
+                    "Name": "Dr. Sanket"
+
+                }
+
+            ],
+
+            "patients": [
+
+                {
+                    "Id": 101,
+                    "Name": "Mihir"
+
+                },
+
+                {
+                    "Id": 102,
+                    "Name": "Henil"
+
+                },
+
+                {
+                    "Id": 103,
+                    "Name": "Darshil"
+
+                },
+
+                {
+                    "Id": 104,
+                    "Name": "Nikunj"
+
+                },
+
+                {
+                    "Id": 105,
+                    "Name": "Meet"
+                }
+            ],
+
+            "Treatment": [
+
+                {
+                    "Id": 1105,
+                    "patientId": 105,
+                    "doctorId": 1
+                },
+
+                {
+                    "Id": 1106,
+                    "patientId": 104,
+                    "doctorId": 1
+
+                },
+
+                {
+                    "Id": 1107,
+                    "patientId": 101,
+                    "doctorId": 3
+
+                },
+
+                {
+                    "Id": 1108,
+                    "patientId": 105,
+                    "doctorId": 2
+
+                },
+
+                {
+                    "Id": 1109,
+                    "patientId": 102,
+                    "doctorId": 3
+
+                },
+
+                {
+                    "Id": 1110,
+                    "patientId": 103,
+                    "doctorId": 3
+
+                }
+
+            ]
+        }
+
+        data = DocterAndPatientList.Doctors;
+        patnt = DocterAndPatientList.patients;
+        Trt = DocterAndPatientList.Treatment;
+
+        
+        var op = ""
+        for (let i = 0; i < data.length; i++) {
+            const element = data[i];
+            op += `<option value="${element.Id}">${element.Name}</option>`;
+        }
+        $("#doc").append(op);
+        
+        var op2 = ""
+        for (let j = 0; j < patnt.length; j++) {
+            op2 += `<option value="${patnt[j].Id}">${patnt[j].Name}</option>`
+        }
+        $("#patnts").append(op2);
+
+
+        $('#sub').click(function () {
+            let disd = $('#doc').val();
+            let pant = $('#patnts').val();
+            let tid = Trt[Trt.length - 1]['Id'] + 1;
+            if(pant == null || disd == null){
+                alert("Select Both Details");
+            }else{
+
+                let dd = {
+                    "Id": tid,
+                    "patientId": pant,
+                    "doctorId": disd
+                }
+                Trt.push(dd)
+                console.log(dd);
+            }
+
+            $('#button1').click();
+
+        })
+          
+
+        $('#button1').click(() => {
+            $('#tabledata').empty()
+            var tab = "";
+
+
+            for (let k = 0; k < Trt.length; k++) {
+                const T = Trt[k];
+
+                var d = data.filter((e)=>{return e.Id == T.doctorId});
+                var dn = d[0].Name
+                // console.log(dn);
+                var p = patnt.filter((e)=>{return e.Id == T.patientId});
+                var pn = p[0].Name
+                // console.log(pn);
+                tab += `<tr>
+                            <td>${k+1}</td>
+                            <td>${T.doctorId}</td>
+                            <td>${dn}</td>
+                            <td>${T.patientId}</td>
+                            <td>${pn}</td>
+                            </tr>`;
+            }
+
+            
+            $(tab).appendTo('#tabledata')
+
+        })
+
+        $('#button1').click();
+
+
+
+
+        
+    </script>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    
+
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+    <main class="container mt-5 p-5 border" style="font-family: 'Times New Roman', Times, serif;">
+        <div class="ps-4">
+            <div class="d-flex justify-content-center">
+                <button id="start" class="btn btn-primary fs-4 px-5 ">Start Exam</button>
+            </div>
+            <p id="result" class="d-none fs-2 d-flex jus"></p>
+            <div id="paper" class="d-none">
+
+                <p class="text-center fs-2 fw-bold border py-2 mb-5">Jounranal Question</p>
+                <p id="stTime" class="fs-2 d-flex justify-content-end"></p>
+                
+                <div id="ques">
+                    
+                </div>
+                <div class="d-flex justify-content-center">
+                    <button id="finish" class="btn btn-outline-success fs-4 px-5">Submit</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            data = [
+                {
+                    "QuestionID": 1,
+                    "Description": "What is the capital of India",
+                    "Options": ["Delhi", "Surat", "Calcutta", "Banglore"],
+                    "Answer": "Delhi"
+                },
+                {
+                    "QuestionID": 2,
+                    "Description": "What is the prime minister name",
+                    "Options": ["Narendra Modi", "Rahul Gandhi", "Amit Shah", "Yogi Aditya Nath"],
+                    "Answer": "Narendra Modi"
+                },
+                {
+                    "QuestionID": 3,
+                    "Description": "What is the National Bird of India",
+                    "Options": ["Hen", "Peacock", "Sparrow", "Crow"],
+                    "Answer": "Peacock"
+                }]
+
+
+
+
+
+            $("#start").click(function () {
+
+//------------------------------ Set Time 10 Min-----------------------------------------
+                let exTime = 10 * 60;
+
+                function etime() {
+                    exTime = exTime - 1;
+                    var h = (Math.floor((exTime/60)/ 60))
+                    var m = (Math.floor(exTime / 60)) % 60
+                    var s = exTime % 60
+                    if (m == 0 && s == 0) {
+                    } else {
+                        setTime();
+                        tim = m + ":" + s;
+                        $("#stTime").text('Time: '+tim);
+                    }
+                }
+
+                function setTime() {
+                    setTimeout(etime, 1000)
+                }
+                etime();
+
+//------------------------------ Display Question -----------------------------------------
+
+                var ques = ""
+                // var op = ""
+                for (let i = 0; i < data.length; i++) {
+                    const element = data[i];
+                    console.log(element.Options);
+                    
+                    ques += `<div class="p-3">
+                                <div class="fs-3">${element.QuestionID}. 
+                                ${element.Description}</div>
+                                <div>
+                                    <input type="radio" name="${element.QuestionID}" class="ms-4 " value="${element.Options[0]}" ><label for="" class="ms-2 fs-5">${element.Options[0]}</label><br>
+                                    <input type="radio" name="${element.QuestionID}" class="ms-4 " value="${element.Options[1]}" ><label for="" class="ms-2 fs-5">${element.Options[1]}</label><br>
+                                    <input type="radio" name="${element.QuestionID}" class="ms-4 " value="${element.Options[2]}" ><label for="" class="ms-2 fs-5">${element.Options[2]}</label><br>
+                                    <input type="radio" name="${element.QuestionID}" class="ms-4 " value="${element.Options[3]}" ><label for="" class="ms-2 fs-5">${element.Options[3]}</label><br>
+                                </div>
+                              
+                            </div>`
+
+                }
+                $("#ques").html(ques);
+                $('#start').addClass('d-none')
+
+                $('#paper').removeClass('d-none');
+
+            })
+//------------------------------ Finish Button -----------------------------------------
+
+            $("#finish").click(function () {
+                var per = [];
+                let c = 0;
+                $("input:radio:checked").each((index,dataa)=> {
+                 
+                    ans = $(dataa).val();
+                    c++;
+                   
+                    pers = (data.filter((e)=>{return e.Answer == ans }))
+                    if(pers.length == 1){
+                        per.push(pers);
+
+                    }
+                });
+                if(c == data.length){
+                    result = (per.length/data.length)*100;
+                    $('#result').text('Result : '+Math.floor(result)).removeClass('d-none');
+                    $('#paper').addClass('d-none');
+                    
+                }else{
+                    alert("Enter All Answers");
+
+                }
+            })
+
+
+
+
+        </script>
+
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
