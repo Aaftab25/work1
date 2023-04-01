@@ -1,9 +1,4 @@
-import './style.css'
 
-template: `
-  <h1>{{title}}</h1>
-  <h2>My favorite hero is: {{myHero}}</h2>
-  `
 //------------------------------------------------------------------Practice 1---------------------------------------------------------------------------------------------------  
 
 
@@ -78,10 +73,10 @@ template: `
       {  id:1002, name:"Jitendra", lastname:"Patidar", address:"Mandsoor", salary:5000},
       {  id:1003, name:"Kundan", lastname:"Rao", address:"Mandsoor", salary:5000},
       {  id:1004, name:"Jaydev", lastname:"Jagda", address:"Rajkot", salary:5000},
-      {  id:1005, name:"Ankit", lastname:"Trivedi", address:"Rajkot", salary:5000},
+      {  id:1005, name:"Ankit", lastname:"Trivedi", address:"Rajkot", salary:5000}
     ]
   
-  Employee.splice(1, 1);
+  // Employee.splice(1, 1);
   var table1 = document.getElementById('table') as HTMLInputElement;
 
 // console.log(Employee["employeeList"]);
@@ -92,8 +87,8 @@ template: `
           
           let addData = document.getElementById('add');
           addData?.addEventListener('click',function(){
-              var name1 = (<HTMLInputElement>document.getElementById('name')).value;
-              var lname1 = (<HTMLInputElement>document.getElementById('lname')).value;
+      var name1 = (<HTMLInputElement>document.getElementById('name')).value;
+              var lname1 = (<HTMLInputElement>document.getElementById('lname')).value;                                                                                                                                             
               var address1 = (<HTMLInputElement>document.getElementById('address')).value;
               var salary1 = (<HTMLInputElement>document.getElementById('salary')).value;
 
@@ -118,8 +113,7 @@ template: `
             
             })
 
-
-
+        
         let getData = document.getElementById('get') ;
         getData?.addEventListener('click',function(){
 
@@ -148,9 +142,9 @@ template: `
                   <td>${Employee[x].lastname}</td>
                   <td>${Employee[x].address}</td>
                   <td>${Employee[x].salary}</td>
-                  <td><input type="button" class="btn btn-outline-danger" value="Delete" onClick="{handleMouseEvent}"></td>
+                  <td><input type="button" class="btn btn-outline-danger" value="Delete" onClick="dele(${Employee[x].id})"></td>
               </tr>`;
-              var emid = Employee[x].id;
+              // var emid = Employee[x].id;
               // var table1 = document.getElementById('table') as HTMLInputElement;
               table1.innerHTML = table;
               // table1.innerHTML = table2;
@@ -158,9 +152,20 @@ template: `
                     
         })
 
+        // Employee.filter(dele);
       
-        // function delete(){
-        //   console.log("Hello Frieds");
+        function dele(id:any){
+             alert(id)
+             console.log(Employee);
+
+             Employee= Employee.filter((e)=> e.id != id)
+             console.log(Employee);
+            // Employee.splice(id, 1);
+            // getda();
+            getData?.click()
+          }
+          
+          
           
         // }
         let empSer = document.getElementById('empSer');
@@ -191,7 +196,8 @@ template: `
               <td>${Employee[x].lastname}</td>
               <td>${Employee[x].address}</td>
               <td>${Employee[x].salary}</td>
-              <td><input type="button" value="Delete" onclick="delete()"></td>
+         
+                  <td><input type="button" class="btn btn-outline-danger" value="Delete" onClick="dele(${Employee[x].id})"></td>
           </tr>`;
           
           }
@@ -226,8 +232,9 @@ template: `
           //   var eid = Employee[x].id
           // var table1 = document.getElementById('table') as HTMLInputElement;
             
-            if(!isNaN(indexId)){
-
+            if(!isNaN(indexId)){  
+              // console.log(indexID);
+              
               let x = indexId
               table += `<tr>
               <td>${Employee[x].id}</td>
@@ -235,7 +242,8 @@ template: `
               <td>${Employee[x].lastname}</td>
               <td>${Employee[x].address}</td>
               <td>${Employee[x].salary}</td>
-              <td><input type="button" value="Delete" onclick="delete()"></td>
+         
+                  <td><input type="button" class="btn btn-outline-danger" value="Delete" onClick="dele(${Employee[x].id})"></td>
           </tr>`;
           
           table1.innerHTML = table;
@@ -275,9 +283,9 @@ template: `
 
 
 //Function Definition  
-function display() {  
-  console.log("Hello JavaTpoint!");  
-}  
+// function display() {  
+//   console.log("Hello JavaTpoint!");  
+// }  
 //Function Call  
 // display();  
 

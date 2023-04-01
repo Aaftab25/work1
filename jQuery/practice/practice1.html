@@ -1,61 +1,401 @@
-<!doctype html>
-<html lang="en">
+    <!doctype html>
+    <html lang="en">
 
-<head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <title>Title</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
-</head>
+    </head>
 
-<body>
-    <header>
-        <!-- place navbar here -->
-    </header>
-    <main>
-        <div>
+    <body>
+        <header>
+            <!-- place navbar here -->
+        </header>
+        <main>
+            <div>
+                <p id="anime"></p>
+            </div>
+        </main>
+        <script>
+            // str1 = "the sky is blue";
+            // str1 = "hello word!";
+            // result = str1.split(" ").reverse()
+            // console.log(result);
 
-        </div>
-    </main>
-    <script>
-        str1 = "the sky is blue";
-        str1 = "hello word!";
-        result = str1.split(" ").reverse()
-        console.log(result);
+            //--------------------------------------------------------------------------
 
-        //--------------------------------------------------------------------------
+            // function removeDups(arr) {
+            //     // arrayRE = array.split("")
+            //     // console.log(array.length);
+            //     // console.log(array);
+            //     array = arr.sort();
+            //     // console.log(array);
+            //     for (i = 0; i < array.length; i++) {
+            //         let s1 = array[i];
+            //         let s2 = array[i + 1];
 
-        function removeDups(array){
-            // arrayRE = array.split("")
-            console.log(array.length);
-            for(i=0; i<array.length; i++){
-                arryRE = array[i].toLowerCase();
-                console.log(arryRE);
-                if(arryRE[i] == arryRE[i]+1){
+            //         if (s1 == s2) {
+            //             console.log(s1);
 
-                    console.log(arryRE[i]);
+
+            //         } else if (s1 != s2) {
+            //             console.log(s2);
+
+            //         }
+
+
+
+
+                    // arryRE = array[i].toLowerCase().split("").sort();
+                    // console.log(arryRE);
+
+            //     }
+            // }
+            // ar = ["Aaftab", "aaftab", "samile", "adil"];
+            // j1 = ["John", "Taylor", "John"];
+            // removeDups(ar);
+            // removeDups(j1);
+            // cat = ["The", "big", "cat"];
+            // // removeDups(cat)
+
+            // var ex = new Set(j1);
+            // console.log(ex);
+            // var tem = "";
+            // for (const i of ex) {
+
+            //     document.write(i);
+            //     tem += i;
+            // }
+            // document.getElementById('anime').innerHTML = tem;
+
+
+            //--------------------------------------------------------------------------------------------------------------------
+            // res = "Hello World";
+            // reve = res.split("").reverse().join("")
+            // console.log(reve);
+            // // console.log(reve.charCodeAt());
+            // var result = "";
+
+            // for (i = 0; i < reve.length; i++) {
+
+            //     if (reve.charCodeAt(i) > 90) {
+            //         result += reve[i].toUpperCase();
+            //         // result1 = result.join("");
+            //         // console.log(result);
+            //     } else {
+            //         result += reve[i].toLowerCase();
+            //         // console.log(result);
+            //     }
+
+
+            // }
+            // document.write(result);
+
+            //--------------------------------------------------------------------------------------------------------------------
+
+            // num = [1, 2, -1, -5, 5, -8];
+            // var count = 0;
+            // // count = []
+            // for (i = 0; i < num.length; i++) {
+            //     if (num[i] < 0) {
+            //         // count.push(num[i])
+            //         count++;
+            //     }
+            // }
+
+            // console.log(count);
+
+
+            //--------------------------------------------------------------------------------------------------------------------
+            // function numb(a, b) {
+            //     if (a < b) {
+            //         c = a / b;
+            //         console.log(c);
+            //         document.write(c);
+            //     }
+            //     else {
+            //         c = a * b;
+            //         console.log(c);
+            //         document.write(c);
+            //     }
+            // }
+
+            // numb(10, 100);
+            // numb(90, 45);
+            //--------------------------------------------------------------------------------------------------------------------
+
+            // function desce(des) {
+            //     re = des.sort().reverse();
+            //     console.log(re);
+            // }
+            // num1 = [1, 5, 7, 4, 6, 3, 2]
+            // num2 = [4, 2, 3, 1];
+            // desce(num1)
+            // desce(num2)
+
+            //--------------------------------------------------------------------------------------------------------------------
+            function obj(arg) {
+                for (var i in arg) {
+                    // console.log(i);
+                    if (i != 'b') {
+
+                        console.log(i + ":" + arg[i])
+                    }
+
                 }
             }
-        }
-        ar = ["Aaftab ,aaftab"]
-        removeDups(ar);
-    </script>
-    <footer>
-        <!-- place footer here -->
-    </footer>
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-        </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-        </script>
-</body>
+            data = { a: 1, b: 7, c: 3 }
+            // let h='abdb'
+            obj(data)
+            data2 = { b: 0, a: 7, d: 8 }
+            obj(data2)
 
-</html>
+            //--------------------------------------------------------------------------------------------------------------------
+            // function aveg(avg) {
+            //     var ans = 0;
+            //     for (i = 0; i < avg.length; i++) {
+            //         // console.log();
+            //         ans += avg[i]
+
+            //         // ans += avg[i]
+            //     }
+            //     console.log(ans / avg.length);
+            // }
+            // averg = [10, 30, 20]
+            // aveg(averg);
+
+            // averg1 = [10, 100, 40];
+            // aveg(averg1);
+
+            // averg2 = [10, 100, 1000];
+            // aveg(averg2);
+
+            //--------------------------------------------------------------------------------------------------------------------
+        
+        let len1=[];
+        
+        
+            function arstring(str) {
+                console.log(str);  
+                for (let i = 0; i < str.length; i++) {
+                    const element = str[i];
+                    len1.push(element.length);
+                }
+                let len3 = Math.max(...len1)
+                for (let i = 0; i < str.length; i++) {
+                    const element = str[i];
+                    if (len3 == element.length) {
+                        console.log(element);
+                    }
+                }
+            }
+                // console.log(len1);
+            // }
+            // str1 = ["help", "me"];
+            // arstring(str1)
+            str2 = ['I', 'need', 'candy','you']
+            arstring(str2)
+
+    //--------------------------------------------------------------------------------------------------------------------
+
+            
+    //          const person = { name: 'Jack', age:26 } 
+    //          const student = { gender: 'male' }
+
+    //          studetail = Object.assign(person,student)
+
+    //          console.log(studetail);
+
+
+    // //--------------------------------------------------------------------------------------------------------------------
+
+
+    // const arr = ["a", "b" ,"a" , "c", "b","d","f","d"]
+    // var arn = []
+
+    //             for (let i = 0; i < arr.length; i++) {
+    //                 const element = arr[i];
+    //                 // console.log(element);
+    //                 if(arn[element]==undefined){
+    //                     arn[element]=1;
+    //                 }
+    //                 else{
+    //                     arn[element] += 1;
+    //                 }
+    //             }
+    //             console.log(arn);
+
+
+    //----------------------------------------------------------------------------------------------------------------------
+                // large = [-1,-2,-4];
+
+                
+                // let n = Math.max(...large)
+                // console.log(n);
+//----------------------------------------------------------------------------------------------------------------------
+        
+
+        // if(Number.isInteger(1011)){
+        //     console.log("int");
+        // }else{
+        //     console.log("float");
+        // }
+
+//----------------------------------------(trim)------------------------------------------------------------------------------
+        // strin = "     Hello Word            ";
+
+        // strin1 = strin.trim();
+        // console.log(strin1);
+
+
+//----------------------------------------------------------------------------------------------------------------------
+        // function getOdd(info){
+        //     for (let i = 0; i < info.length; i++) {
+        //         const element = info[i];
+        //         dal = info[i]%2
+        //         if(dal == 1){
+        //             console.log(info[i]);
+        //         }
+        //     }
+        // }
+        // val = [1,2,3]
+        // getOdd(val)
+        // val2 = [80,5,100]
+        // getOdd(val2)
+//----------------------------------------------------------------------------------------------------------------------
+
+    // function compa(str1,str2) {
+    //     if (str1.length == str2.length) {
+    //         console.log("true");
+    //     } else {
+    //         console.log("false");
+            
+    //     }
+    // }
+    // compa("ad", "bd")
+    // compa("ABC", "DE") 
+    // compa("hello", "edabit")
+//----------------------------------------------------------------------------------------------------------------------
+
+
+// function sumTwoSmallestNums(small){
+//     let smal = small.filter((e)=>{return e>0})
+//     smal.sort((a,b)=>{return a-b})
+//     console.log(smal[0]+smal[1]);
+// }
+
+//     sumTwoSmallestNums([19, 5, 42, 2, 77])
+//     sumTwoSmallestNums([2, 9, 6, -1])
+
+   
+
+//----------------------------------------------------------------------------------------------------------------------
+
+    // function freeShip(shop){
+    //     // console.log(shop);
+    //     let shp =0
+    //     for(i in shop){
+    //         shp += shop[i]
+    //     }
+    //     if(shp > 50.00){
+    //         console.log("true");
+    //     }else{
+    //         console.log("false");
+    //     }
+        
+            
+    // }
+
+    // freeShip({"Shampoo":5.99,"Rubber":15.99})
+    // freeShip({ "Flatscreen TV": 399.99 })
+    // freeShip({ "Monopoly": 11.99, "Secret Hitler": 35.99, "Bananagrams": 13.99 })
+
+//----------------------------------------------------------------------------------------------------------------------
+
+    // function mulValue(x,y){
+    //     console.log(x);
+    //     for(i in x){
+    //         x[i] = x[i]*y;
+    //     }
+    //     console.log(x);
+    // }
+
+    // mulValue({a:1,b:2,c:3},3)
+
+//----------------------------------------------------------------------------------------------------------------------
+
+        // function dis(val,per){
+        //     disVal = (val*per)/100
+        //     console.log(val-disVal);
+        // }
+
+        // dis(1500, 50)
+        // dis(89, 20)
+        // dis(100, 75)
+//----------------------------------------------------------------------------------------------------------------------
+        // function spl(nu1){
+        //     console.log(nu1.split(""));
+        //     // nu1
+        // }
+        // let prom = prompt("Enter No.")
+        // spl(prom)
+
+
+        // function removeDups(sup) {
+       
+        //     let sup1 = sup.filter((item,index)=>sup.indexOf(item)==index)
+        //     console.log(sup1);
+        // }
+
+        // removeDups(["The", "Big", "Cat"])
+        // removeDups(["John", "Taylor", "John"])
+
+
+        // function reverse(str) {
+        //     let str1 = str.split("").reverse().join("")
+        //     console.log(str1);
+        //     let code1=' '
+        //     for (let i = 0; i < str1.length; i++) {
+        //         const element = str1[i];
+        //         code = str1.charCodeAt(i);
+        //         // console.log(code);
+        //         if(code >90){
+        //             code1+= element.toUpperCase();
+
+        //         }else{
+        //             code1 += element.toLowerCase();
+        //         }
+                
+        //     }
+        //     console.log(code1);
+
+        // }
+
+        // reverse("Hello World")
+
+                                
+
+        // myFunc({a:1, b:2, c:7})
+
+        </script>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+            </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+            </script>
+    </body>
+                                                                        
+    </html>                                                                                                     
