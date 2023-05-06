@@ -1,0 +1,9 @@
+use aaftab_shaikh1;
+create procedure mesg()
+BEGIN
+    SELECT first_name FROM employee;
+
+    show DATABASES;
+
+
+    select * FROM employee;

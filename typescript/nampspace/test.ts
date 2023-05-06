@@ -1,14 +1,4 @@
-// / <reference path="shape.ts" />
-// /// <reference path="triangle.ts" />
-// /// <reference path="circle.ts" />
-// import "./shape.ts";
 
-// function drawShape(sap:Drawing.shape){
-//     sap.draw()
-// }
-
-// drawShape(new Drawing.circle());
-// drawShape(new Drawing.triangle());
 
 function matrix(mat:any) {
     // console.log(mat);

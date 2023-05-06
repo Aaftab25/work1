@@ -19,92 +19,106 @@
     -- GO
 
 -- 2. Select employee details from employee table if data exists in incentive table ? 
-    SELECT * FROM employee e INNER JOIN incentives i ON e.employee_id = i.employee_ref_id;
+    -- SELECT * FROM employee e INNER JOIN incentives i ON e.employee_id = i.employee_ref_id;
 
 -- 3. Find Salary of the employee whose salary is more than Roy Salary 
-    SELECT * FROM employee WHERE salary > (SELECT salary from employee WHERE first_name = 'Roy')
--- 4. Create a view to select FirstName,LastName,Salary,JoiningDate,IncentiveDate and IncentiveAmount 
-    SELECT first_name,last_name,salary, joining_date,incentive_date,incentive_amount FROM employee e INNER JOIN incentives i ON e.employee_id = i.employee_ref_id;
--- 5. Create a view to select Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount  greater than 3000
-    SELECT first_name, incentive_amount FROM employee e INNER JOIN incentives i ON e.employee_id = i.employee_ref_id WHERE incentive_amount > 3000;
--- 6. 5 Students Name, Address, City, DOB, Standard need to be inserted in the student table, need to fetch these result from json variable. and select output in the json format Note: use exception handling 
-        CREATE TABLE students(
-            s_id INT PRIMARY KEY,
-            name INT,   
-            address VARCHAR(50),
-            city VARCHAR(15),
-            DOB DATE
-        );
-       DESCRIBE students;
-        INSERT INTO students VALUES
-        (1, 'Aaftab', 'Akota','Vadodara','1994-02-19'),
-        (2, 'Itachi', 'Nehru Nagar','Ahemdabad','1990-10-20'),
-        (3, 'Hinata', 'Buchao','Rajkot','1991-07-17'),
-        (4, 'Naruto', 'India Gate','Delhi','1988-05-21'),
-        (5, 'Sasuke', 'Dharavi','Mumbai','1995-03-14');
 
-        SELECT JSON_ARRAYAGG(JSON_OBJECT(s_id,name,address,city)) FROM students;
+--     SELECT * FROM employee WHERE salary > (SELECT salary from employee WHERE first_name = 'Roy');
+-- -- 4. Create a view to select FirstName,LastName,Salary,JoiningDate,IncentiveDate and IncentiveAmount 
+--     SELECT first_name,last_name,salary, joining_date,incentive_date,incentive_amount FROM employee e INNER JOIN incentives i ON e.employee_id = i.employee_ref_id;
+-- -- 5. Create a view to select Select first_name, incentive amount from employee and incentives table for those employees who have incentives and incentive amount  greater than 3000
+--     SELECT first_name, incentive_amount FROM employee e INNER JOIN incentives i ON e.employee_id = i.employee_ref_id WHERE incentive_amount > 3000;
+-- -- 6. 5 Students Name, Address, City, DOB, Standard need to be inserted in the student table, need to fetch these result from json variable. and select output in the json format Note: use exception handling 
+--         CREATE TABLE students(
+--             s_id INT PRIMARY KEY,
+--             name INT,   
+--             address VARCHAR(50),
+--             city VARCHAR(15),
+--             DOB DATE
+--         );
+--        DESCRIBE students;
+--         INSERT INTO students VALUES
+--         (1, 'Aaftab', 'Akota','Vadodara','1994-02-19'),
+--         (2, 'Itachi', 'Nehru Nagar','Ahemdabad','1990-10-20'),
+--         (3, 'Hinata', 'Buchao','Rajkot','1991-07-17'),
+--         (4, 'Naruto', 'India Gate','Delhi','1988-05-21'),
+--         (5, 'Sasuke', 'Dharavi','Mumbai','1995-03-14');
+
+--         SELECT JSON_ARRAYAGG(JSON_OBJECT(s_id,name,address,city)) FROM students;
 
 
 --7. 5 Students Name, Address, City, DOB, Standard need to be inserted in the student table, need to fetch these result from json variable using input parameter. and select output in the json format. Note: use exception handling 
-    
+         
+         
+
+    -- DROP PROCEDURE `Insert_recod`;
+        -- DELIMITER//
+
+    --     CREATE PROCEDURE Insert_recod(in data json)
+           
+    --     BEGIN 
+    --         DECLARE s_id INT DEFAULT NULL;
+    --         DECLARE name VARCHAR(20) DEFAULT NULL;
+    --         DECLARE address VARCHAR(40) DEFAULT NULL;
+    --         DECLARE city VARCHAR(15) DEFAULT NULL;
+    --         DECLARE dob DATE DEFAULT NULL;
+
+    --         SET s_id = JSON_UNQUOTE(JSON_EXTRACT(data,'$.s_id'));
+    --         SET name = JSON_UNQUOTE(JSON_EXTRACT(data,'$.name'));
+    --         SET address = JSON_UNQUOTE(JSON_EXTRACT(data,'$.address'));
+    --         SET city = JSON_UNQUOTE(JSON_EXTRACT(data,'$.city'));
+    --         SET dob = JSON_UNQUOTE(JSON_EXTRACT(data,'$.dob'));
+     
+    --         INSERT INTO students (s_id,name,address,city,DOB)
+    --         VALUES (s_id,name,address,city,dob);
+    --     END//
+    --     DELIMITER;
+
+DELIMITER//
+        ---------------insert Data ------------------------------------
+
+ 
+
+call Insert_recod('{"s_id":"6","name":"Migel","address":"123","city":"Bharuch","dob":"1995-02-12"},
+        {"s_id":"7","name":"John","address":"456","city":"New York","dob":"1955-02-05"},
+        {"s_id":"8","name":"Kakashi","address":"789","city":"America","dob":"1965-02-12"},
+        {"s_id":"9","name":"Jiraiya","address":"111","city":"Russia","dob":"1975-02-02"},
+        {"s_id":"10","name":"Deku","address":"121","city":"UAE","dob":"1995-02-25"}');
+
+
 --8 Create a procedure which will accept StudentId, StudentName, CourseID, CourseName as a input parameter in json format and insert record in 2 table student and course table
 
-    CREATE TABLE courses(
-        couese_id INT PRIMARY KEY,
-        course_name VARCHAR(20)
-    );
+--     CREATE TABLE courses(
+--         couese_id INT PRIMARY KEY,
+--         course_name VARCHAR(20)
+--     );
 
-    INSERT INTO courses VALUES
-    (101,'Science'),
-    (102, 'English'),
-    (103, 'Math');
+--     INSERT INTO courses VALUES
+--     (101,'Science'),
+--     (102, 'English'),
+--     (103, 'Math');
 
-    SELECT * FROM courses;
+--     SELECT * FROM courses;
 
-    SELECT * from students;
+--     SELECT * from students;
 
-    DESCRIBE students;
+--     DESCRIBE students;
 
-    ALTER TABLE students
-    ADD course_id int;
+--     ALTER TABLE students
+--     ADD course_id int;
 
-    ALTER TABLE students
-    ADD constraint fk_courses FOREIGN KEY(course_id) REFERENCES courses(course_id);
+--     ALTER TABLE students
+--     ADD constraint fk_courses FOREIGN KEY(course_id) REFERENCES courses(course_id);
 
 
 
-    DELIMITER//
+   
 
-    DROP PROCEDURE `Insert_recod`;
-
-        CREATE PROCEDURE Insert_recod(in data json)
-           
-        BEGIN 
-            DECLARE s_id INT DEFAULT NULL;
-            DECLARE name VARCHAR(20) DEFAULT NULL;
-            DECLARE address VARCHAR(40) DEFAULT NULL;
-            DECLARE city VARCHAR(15) DEFAULT NULL;
-            DECLARE dob DATE DEFAULT NULL;
-
-            SET s_id = JSON_UNQUOTE(JSON_EXTRACT(data,'$.s_id'));
-            SET name = JSON_UNQUOTE(JSON_EXTRACT(data,'$.name'));
-            SET address = JSON_UNQUOTE(JSON_EXTRACT(data,'$.address'));
-            SET city = JSON_UNQUOTE(JSON_EXTRACT(data,'$.city'));
-            SET dob = JSON_UNQUOTE(JSON_EXTRACT(data,'$.dob'));
-     
-            INSERT INTO students (s_id,name,address,city,DOB)
-            VALUES (s_id,name,address,city,dob);
-        END
-        DELIMITER//
-
-call Insert_recod('{"s_id":"6","name":"Migel","address":"123","city":"Bharuch","dob":"1995-02-12"}');
-
-SELECT * from students;
+-- SELECT * from students;
 
 DELIMITER//
 
-DROP PROCEDURE usp_student_course;
+-- DROP PROCEDURE usp_student_course;
 CREATE PROCEDURE usp_student_course (in sc JSON)
 
 BEGIN
@@ -134,12 +148,59 @@ BEGIN
 
         
     END
+
+
+    -- CALL usp_student_course ('{"course_id":"104","course_name":"Database","s_id":"11","name":"Hendry","address":"645","city":"Landon","dob":"1995-02-12"}');
+
+
+    -- SELECT * FROM courses;
+-- DELIMITER//
+
+    SELECT * FROM all_studs;
+
+
+    DELIMITER//
+
+    CREATE Procedure all_studs(in dat JSON)
+    BEGIN
+    DECLARE su_id INT DEFAULT NULL;
+    SET su_id = JSON_UNQUOTE(JSON_EXTRACT(dat, '$.s_id'));
+        SELECT * FROM students where s_id = su_id;
+    END
+    DELIMITER;
+
+CALL all_studs ('{"s_id":"2"}')
+
+
 DELIMITER//
 
+create procedure list_data(inout get_data varchar(2555))
 
-    CALL usp_student_course ('{"course_id":"104","course_name":"Database","s_id":"7","name":"Hendry","address":"645","city":"Landon","dob":"1995-02-12"}');
+begin
+	declare is_done integer default 0;
+    declare s_name varchar(255) default "";
+    declare stud_cursor cursor for
+    
+    select JSON_ARRAYAGG(JSON_OBJECT('student Id',s.s_id,'Student_Name',s.name,'Course_id',s.course_id,'Course Name',course_name)) as data
+    FROM students s join course c ON s.course_id = c.course_id ;
+    DECLARE CONTINUE HANDLER NOT FOUND SET is_done = 1 ;
+
+    OPEN stud_cursor;
+    get_list : LOOP
+ee1Cost: 9ms
 
 
-    SELECT * FROM courses;
-    SELECT * FROM students;
+You have an error in your SQL s
+    FETCH stu_cursor INTO get_stu;
+    IF is_done = 1 THEN
+    LEAVE get_list;
+    END IF;
+    END LOOP get_list;
 
+    CLOSE stud_cursor;
+    END //
+-- DELIMITER;
+
+    -- SET @get_stu = "";
+    -- CALL list_data(@get_stu)
+    -- SELECT @get_stu;
