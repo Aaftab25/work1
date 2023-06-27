@@ -1,0 +1,58 @@
+# ------------------Add My Order In Orders Menu-------------------------
+25: List Order.
+150: My Order.
+step-1: Add New Entry in admin_pages.
+step-2: Add New Entry In admin_section_menu with admin_pages primary key as foregin key(action_page-id).
+step-3: Add New Entry In admin_section_menu_description with admin_section_menu primary key as Foreign key(menu_id) in this table.
+step-4: Update Table admin_constants as required. like (25 list order as 150 my order then add 150 enter where 25)
+step-5: Add New Entry in admin_menu_action (add new enter 150 in admin_menu_id where 25).
+step-6: Finish (My Order Work as List Order).
+
+
+# -------------------Add New Header Menu Refer Friend Like Contact Us and Add Insert Data In Database---------------
+
+# ----Store Personalization----
+step-1: Go to Admin Panel Store Personalization-->Link-Header / Footer.
+step-2: Click Add To New Entry.
+step-3: Fill Form and Submit.
+
+# ---Form Fields---
+Select Postion: 'Header'. 
+Link:           'Refer Friend'(Display Name). 
+Link Option:    'Both Text and Icon'. 
+Link Icon:      "'Add Icon' Or 'Upload Icon File'".
+All Link:       'External Link and Path.(Choose As per Required)'.
+Display:        "'Both' (When Ever You Want To Show Before Or After Login)".
+Open Link:      "Same Window (As Per Required)".
+Sort:           "6 (Which Postion You have to Show)".
+Status:         "On".
+
+# ----Contents Management----
+step-1: Go to Contents Management-->Contents. 
+step-2: Click Add To New Entry.
+step-3: Fill General Informaion Form And Submit.
+
+# ---General Informaion---
+key             :   "refer_friend (add url Without Extension) (as per required)".
+URL             :   "refer-friend (Add name With You want to Show) (as per required)".
+Page Heading    :   "Refer Friend (as per required)".
+Full Layout     :   "Default (as per required)".
+Sidebar Display :   "Default (as per required)".
+Blog Page       :   "Off (as per required)".
+Sort            :   "0 (as per required)".
+Status          :   "On (as per required)".
+
+
+# ----Add Four File Refer Friend for List, Add, Edit, Delete data ----
+1. refer_friend.php 
+2. refer_friend.tpl.php
+3. refer_friend_action.php
+4. refer_friend_action.tpl.php
+
+# ---- Image Upload ----
+1. create a folder in image folder in that folder there are more two folder 1 is large and 2nd is thumb
+2. Add Constant in Path.php
+3. create image column in database.
+4. Add column in referdata and referfriendmaster file.
+5. Add for Eelemt for Image Upload.
+6. Add 
