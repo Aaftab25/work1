@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "description": "my server",
+  "scripts": {
+    "start": "nodemon main.js"
+  },
+  "dependencies": {
+    "http": "^0.0.1-security",
+    "nodemon": "^2.0.22"
+  }
+}
